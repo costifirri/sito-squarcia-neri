@@ -514,37 +514,6 @@ a:hover {
   }
 }
 
-/* Mappa caricata solo dopo il clic */
-.mappa {
-  border: 1px solid var(--linea);
-  background: var(--fondo-tenue);
-  min-height: 20rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1.5rem;
-  text-align: center;
-}
-
-.mappa p {
-  margin: 0;
-  max-width: 28rem;
-  font-size: 0.95rem;
-  color: var(--grigio);
-}
-
-.mappa iframe {
-  width: 100%;
-  height: 24rem;
-  border: 0;
-}
-
-.mappa--caricata {
-  padding: 0;
-}
-
 /* Fascia scura: invito alla visita e piè di pagina */
 .scuro {
   background: var(--blu-notte);
@@ -703,4 +672,9 @@ a:hover {
 
 .introduzione p {
   color: var(--grigio);
+}
+
+/* Indirizzi email lunghi: vanno a capo invece di uscire dallo schermo */
+.spezza {
+  overflow-wrap: anywhere;
 }

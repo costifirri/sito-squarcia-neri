@@ -1,7 +1,7 @@
 ---
 import logoLuminoso from '../../brand/gsn-orizzontale-trasparente.svg?url';
 import Dato from './Dato.astro';
-import { studio, linkTelefono, linkEmail, indirizzoCompleto } from '../lib/studio';
+import { studio, linkTelefono, linkEmail } from '../lib/studio';
 import { ui, rotte, type Lingua } from '../i18n/ui';
 
 interface Props {
@@ -18,13 +18,12 @@ const anno = new Date().getFullYear();
     <img class="pie__logo" src={logoLuminoso} alt={studio.nome} width="2400" height="800" loading="lazy" />
     <div class="pie__colonne">
       <div>
-        <h2>{t.footerStudio}</h2>
-        <p><Dato valore={indirizzoCompleto} /></p>
+        <h2>{t.footerContatti}</h2>
         <p>
           {t.telefono}:{' '}
           {linkTelefono ? <a href={linkTelefono}>{studio.telefono}</a> : <Dato valore={studio.telefono} />}
         </p>
-        <p>
+        <p class="spezza">
           {t.email}:{' '}
           {linkEmail ? <a href={linkEmail}>{studio.email}</a> : <Dato valore={studio.email} />}
         </p>

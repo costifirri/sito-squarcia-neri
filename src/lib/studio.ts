@@ -13,5 +13,3 @@ export const linkEmail = mancante(studio.email) ? null : `mailto:${studio.email}
 export const linkWhatsapp = mancante(studio.whatsapp)
   ? null
   : `https://wa.me/${soloCifre(studio.whatsapp).replace('+', '')}`;
-
-export const indirizzoCompleto = `${studio.indirizzo}, ${studio.cap} ${studio.citta} (${studio.provincia})`;

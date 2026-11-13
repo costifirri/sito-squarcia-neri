@@ -16,8 +16,10 @@ Da eseguire nel terminale, dentro la cartella del progetto.
 
 ## Dove si modifica cosa
 
-- **Dati dello studio** (indirizzo, telefono, email, P. IVA, Ordine, orari, dominio, coordinate della mappa):
-  `src/data/studio.json`. Vanno sostituiti i valori tra parentesi quadre, es. `"[TELEFONO]"`.
+- **Dati del medico** (telefono, WhatsApp, email, P. IVA, Ordine, dominio, fornitore di hosting):
+  `src/data/studio.json`. Vanno sostituiti i valori tra parentesi quadre, es. `"[DOMINIO]"`.
+  L'indirizzo dello studio non viene pubblicato, per scelta del medico: niente indirizzo né mappa.
+  Il campo `area` è facoltativo: se compilato (es. "Latina e Roma") compare nella pagina dei contatti.
 - **Trattamenti**: un file per trattamento in `src/content/trattamenti/it/` e la traduzione in
   `src/content/trattamenti/en/`. Le due versioni devono avere la stessa `chiave`. Il nome del file
   diventa l'indirizzo della pagina. Il campo `gruppo` (es. Seno, Filler) raggruppa le schede nell'indice.
@@ -35,5 +37,5 @@ Da eseguire nel terminale, dentro la cartella del progetto.
 
 ## Privacy
 
-Il sito non usa cookie di tracciamento né servizi esterni: i font sono ospitati in locale e la mappa
-(OpenStreetMap) si carica solo dopo un clic del visitatore.
+Il sito non usa cookie di tracciamento né servizi esterni: i font sono ospitati in locale e non ci sono
+contenuti incorporati da terze parti.

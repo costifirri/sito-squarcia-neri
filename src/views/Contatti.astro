@@ -1,8 +1,8 @@
 ---
+// L'indirizzo dello studio non viene pubblicato, per scelta del medico: niente indirizzo né mappa.
 import Base from '../layouts/Base.astro';
 import Dato from '../components/Dato.astro';
-import Mappa from '../components/Mappa.astro';
-import { studio, linkTelefono, linkEmail, linkWhatsapp, indirizzoCompleto } from '../lib/studio';
+import { studio, mancante, linkTelefono, linkEmail, linkWhatsapp } from '../lib/studio';
 import { ui, rotte, type Lingua } from '../i18n/ui';
 
 interface Props {
@@ -11,22 +11,29 @@ interface Props {
 
 const { lingua } = Astro.props;
 const t = ui[lingua];
+const area = studio.area[lingua];
 const testi = {
   it: {
-    titolo: 'Studio e contatti',
-    descrizione: `Indirizzo, orari, telefono, email e WhatsApp dello studio del ${studio.nome}. Le visite si svolgono su appuntamento.`,
-    sommario: 'Le visite si svolgono su appuntamento. Per prenotare è possibile telefonare, scrivere una email o un messaggio WhatsApp.',
-    contatti: 'Contatti',
-    doveSiamo: 'Dove si trova lo studio',
+    titolo: 'Contatti',
+    descrizione: `Telefono, email e WhatsApp del ${studio.nome}. Le visite si svolgono su appuntamento.`,
+    sommario: 'Le visite si svolgono su appuntamento.',
+    recapiti: 'Recapiti',
+    prenotare: 'Come prenotare',
+    prenotareTesto:
+      'Per fissare una visita è possibile telefonare, scrivere una email o inviare un messaggio WhatsApp. Sede e orario dell’appuntamento vengono comunicati al momento della prenotazione.',
+    area: 'Dove riceve',
     riservatezza:
       'Per la tua riservatezza, non inviare referti, fotografie o informazioni dettagliate sulla tua salute via email o WhatsApp: se ne parla direttamente durante la visita.',
   },
   en: {
-    titolo: 'Clinic and contact',
-    descrizione: `Address, opening hours, phone, email and WhatsApp of the clinic of ${studio.nome}. Consultations are by appointment.`,
-    sommario: 'Consultations are by appointment. To book, you can call, send an email or a WhatsApp message.',
-    contatti: 'Contact details',
-    doveSiamo: 'Where to find the clinic',
+    titolo: 'Contact',
+    descrizione: `Phone, email and WhatsApp of ${studio.nome}. Consultations are by appointment.`,
+    sommario: 'Consultations are by appointment.',
+    recapiti: 'Contact details',
+    prenotare: 'How to book',
+    prenotareTesto:
+      'To arrange a consultation you can call, send an email or a WhatsApp message. The location and time of the appointment are confirmed when you book.',
+    area: 'Where consultations take place',
     riservatezza:
       'For your privacy, please do not send medical reports, photographs or detailed information about your health by email or WhatsApp: these are discussed in person during the consultation.',
   },
@@ -47,22 +54,8 @@ const testi = {
 
       <div class="due-colonne" style="margin-top: 3rem">
         <div>
-          <h2>{testi.contatti}</h2>
+          <h2>{testi.recapiti}</h2>
           <dl class="dati">
-            <div>
-              <dt>{t.indirizzo}</dt>
-              <dd><Dato valore={indirizzoCompleto} /></dd>
-            </div>
-            <div>
-              <dt>{t.orari}</dt>
-              {
-                studio.orari.map((riga) => (
-                  <dd>
-                    <Dato valore={`${riga.giorni[lingua]}: ${riga.ore}`} />
-                  </dd>
-                ))
-              }
-            </div>
             <div>
               <dt>{t.telefono}</dt>
               <dd>
@@ -71,28 +64,40 @@ const testi = {
             </div>
             <div>
               <dt>{t.email}</dt>
-              <dd>{linkEmail ? <a href={linkEmail}>{studio.email}</a> : <Dato valore={studio.email} />}</dd>
-            </div>
-            <div>
-              <dt>{t.whatsapp}</dt>
-              <dd>
-                {
-                  linkWhatsapp ? (
-                    <a class="pulsante" href={linkWhatsapp} target="_blank" rel="noopener noreferrer">
-                      {t.scriviWhatsapp}
-                    </a>
-                  ) : (
-                    <Dato valore={studio.whatsapp} />
-                  )
-                }
+              <dd class="spezza">
+                {linkEmail ? <a href={linkEmail}>{studio.email}</a> : <Dato valore={studio.email} />}
               </dd>
             </div>
+            {
+              !mancante(area) && (
+                <div>
+                  <dt>{testi.area}</dt>
+                  <dd>{area}</dd>
+                </div>
+              )
+            }
           </dl>
-          <p class="secondario" style="margin-top: 2rem; font-size: 0.95rem">{testi.riservatezza}</p>
         </div>
         <div>
-          <h2>{testi.doveSiamo}</h2>
-          <Mappa lingua={lingua} />
+          <h2>{testi.prenotare}</h2>
+          <p>{testi.prenotareTesto}</p>
+          <div class="azioni">
+            {
+              linkTelefono && (
+                <a class="pulsante" href={linkTelefono}>
+                  {t.chiama}
+                </a>
+              )
+            }
+            {
+              linkWhatsapp && (
+                <a class="pulsante pulsante--contorno" href={linkWhatsapp} target="_blank" rel="noopener noreferrer">
+                  {t.scriviWhatsapp}
+                </a>
+              )
+            }
+          </div>
+          <p class="secondario nota">{testi.riservatezza}</p>
         </div>
       </div>
     </div>
