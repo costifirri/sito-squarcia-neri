@@ -7,7 +7,7 @@ chiave: profiloplastica
 ordine: 60
 durata: "30-60 minuti"
 anestesia: "pomata anestetica"
-ritorno: "immediato"
+ritorno: "in genere immediato"
 ---
 
 Con il passare degli anni, i volumi del volto si modificano e i tessuti perdono parte del loro naturale sostegno, cambiando gradualmente l’equilibrio tra i diversi lineamenti. L’armonizzazione con acido ialuronico si propone di ristabilire queste proporzioni attraverso iniezioni mirate, che possono interessare, in base alle caratteristiche individuali, fronte, profilo nasale, zigomi, labbra, mento e regione mandibolare, con un effetto di sostegno dei tessuti.

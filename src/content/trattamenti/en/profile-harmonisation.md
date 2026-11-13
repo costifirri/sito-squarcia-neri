@@ -7,7 +7,7 @@ chiave: profiloplastica
 ordine: 60
 durata: "30-60 minutes"
 anestesia: "Anaesthetic cream"
-ritorno: "Immediate"
+ritorno: "Generally immediate"
 ---
 
 Over the years, the volumes of the face change and the tissues lose part of their natural support, gradually altering the balance between the different features. Harmonisation with hyaluronic acid aims to re-establish these proportions through targeted injections which, depending on individual characteristics, may involve the forehead, nasal profile, cheekbones, lips, chin and jawline, with a supporting effect on the tissues.

@@ -7,7 +7,7 @@ chiave: filler-acido-ialuronico
 ordine: 10
 ---
 
-Hyaluronic acid filler is an extremely versatile injectable treatment in aesthetic medicine, which makes it possible to redefine facial volumes, soften the signs of ageing and improve skin hydration, with results visible from the first session. Only products from companies of proven reliability are used, bearing the CE mark, approved by the Food and Drug Administration (FDA) and supported by clinical evidence of safety and efficacy. Each filler has specific characteristics and is selected according to the anatomical region to be treated and the clinical objective, to obtain a natural, elegant and harmonious result.
+Hyaluronic acid filler is an extremely versatile injectable treatment in aesthetic medicine, which makes it possible to redefine facial volumes, soften the signs of ageing and improve skin hydration; the effects can generally be seen after the session. CE-marked medical devices are used. Each filler has specific characteristics and is selected according to the anatomical region to be treated and the clinical objective, to obtain a result in harmony with the features of the face.
 
 ## Risks and contraindications
 

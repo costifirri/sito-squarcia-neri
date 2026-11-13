@@ -7,3 +7,5 @@ dist/
 Thumbs.db
 # Pacchetto originale dell'immagine coordinata (bozze di stampa): resta solo sul computer
 GSN-immagine-coordinata.zip
+# Cartella estratta dallo zip (bozze di stampa): resta solo sul computer
+GSN-immagine-coordinata/

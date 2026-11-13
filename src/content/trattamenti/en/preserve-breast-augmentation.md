@@ -11,7 +11,7 @@ Preservé breast augmentation is a minimally invasive breast enlargement techniq
 
 The technique is indicated for patients who want a modest and natural increase in volume. In the presence of breast ptosis, a mastopexy can be combined in the same operation to lift and reshape the breast. Suitability is assessed during the consultation with the specialist, who personalises the procedure according to the patient’s anatomy and objectives.
 
-The procedure is performed under sedation, without general anaesthesia. Post-operative recovery is rapid: normal daily activities can be resumed from the following day, avoiding strain with the arms in the first few weeks. The result is a breast that is natural and in harmony with the figure.
+The procedure is performed under sedation, without general anaesthesia. Post-operative recovery is rapid: normal daily activities can generally be resumed from the following day, avoiding strain with the arms in the first few weeks. The aim is a breast that is natural and in harmony with the figure.
 
 ## Risks and contraindications
 

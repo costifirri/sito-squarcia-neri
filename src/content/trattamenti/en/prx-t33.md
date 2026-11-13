@@ -7,7 +7,7 @@ chiave: prx-t33
 ordine: 90
 durata: "20 minutes"
 anestesia: "No anaesthesia required"
-ritorno: "Immediate"
+ritorno: "Generally immediate"
 ---
 
 PRX is a needle-free biorevitalising treatment based on 33% trichloroacetic acid, hydrogen peroxide and kojic acid. Applied to the skin, it stimulates fibroblasts and growth factors, improving tone, radiance and firmness without visible peeling. For mature skin, the PRX Plus version is available, specifically formulated for this skin type.
