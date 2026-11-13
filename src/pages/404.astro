@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import { rotte } from '../i18n/ui';
+---
+
+<Base
+  lingua="it"
+  titolo="Pagina non trovata"
+  descrizione="La pagina cercata non esiste o è stata spostata."
+  altraLingua={rotte.home.en}
+  noindex
+>
+  <section class="sezione">
+    <div class="contenitore">
+      <h1>Pagina non trovata</h1>
+      <hr class="linea" />
+      <p class="sommario">La pagina cercata non esiste o è stata spostata.</p>
+      <p lang="en" class="secondario">The page you are looking for does not exist or has been moved.</p>
+      <div class="azioni">
+        <a class="pulsante" href={rotte.home.it}>Torna alla home</a>
+        <a class="pulsante pulsante--contorno" href={rotte.home.en} lang="en">Home page (English)</a>
+      </div>
+    </div>
+  </section>
+</Base>

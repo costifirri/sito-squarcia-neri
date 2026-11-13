@@ -1,0 +1,102 @@
+---
+import Base from '../layouts/Base.astro';
+import Dato from '../components/Dato.astro';
+import InvitoVisita from '../components/InvitoVisita.astro';
+import { studio } from '../lib/studio';
+import { ui, rotte, categorie, nomiCategorie, type Lingua } from '../i18n/ui';
+
+interface Props {
+  lingua: Lingua;
+}
+
+const { lingua } = Astro.props;
+const t = ui[lingua];
+const testi = {
+  it: {
+    titoloPagina: `${studio.nome} | Chirurgo plastico`,
+    descrizione: `${studio.nome}, ${studio.qualifica.it.toLowerCase()}. Informazioni su attività, trattamenti e contatti dello studio.`,
+    occhiello: 'Chirurgia plastica, ricostruttiva ed estetica',
+    presentazione: `${studio.qualifica.it}. Riceve su appuntamento presso lo studio di ${studio.citta}.`,
+    vediTrattamenti: 'Vedi i trattamenti',
+    areeTitolo: 'Aree di attività',
+    aree: {
+      'chirurgia-estetica': 'Interventi chirurgici che riguardano la forma e le proporzioni del viso e del corpo.',
+      'chirurgia-ricostruttiva':
+        'Interventi per il ripristino di forma e funzione dopo traumi, malattie, chirurgia oncologica o in presenza di malformazioni.',
+      'medicina-estetica': 'Trattamenti ambulatoriali non chirurgici.',
+    },
+    chiSonoTitolo: 'Chi sono',
+    chiSonoTesto: '[TESTO DA FORNIRE: due o tre righe di presentazione del medico per la home]',
+    chiSonoLink: 'Formazione ed esperienza',
+  },
+  en: {
+    titoloPagina: `${studio.nome} | Plastic surgeon`,
+    descrizione: `${studio.nome}, ${studio.qualifica.en.toLowerCase()}. Information on areas of practice, treatments and how to contact the clinic.`,
+    occhiello: 'Plastic, reconstructive and aesthetic surgery',
+    presentazione: `${studio.qualifica.en}. Consultations by appointment at the clinic in ${studio.citta}.`,
+    vediTrattamenti: 'View treatments',
+    areeTitolo: 'Areas of practice',
+    aree: {
+      'chirurgia-estetica': 'Surgical procedures concerning the shape and proportions of the face and body.',
+      'chirurgia-ricostruttiva':
+        'Procedures to restore form and function after trauma, illness, cancer surgery or in the presence of malformations.',
+      'medicina-estetica': 'Non-surgical outpatient treatments.',
+    },
+    chiSonoTitolo: 'About',
+    chiSonoTesto: '[TESTO DA FORNIRE: due o tre righe di presentazione del medico per la home, in inglese]',
+    chiSonoLink: 'Training and experience',
+  },
+}[lingua];
+---
+
+<Base
+  lingua={lingua}
+  titolo={testi.titoloPagina}
+  descrizione={testi.descrizione}
+  altraLingua={rotte.home[lingua === 'it' ? 'en' : 'it']}
+>
+  <section class="apertura">
+    <div class="contenitore">
+      <p class="occhiello">{testi.occhiello}</p>
+      <h1>{studio.nome}</h1>
+      <hr class="linea" />
+      <p class="sommario"><Dato valore={testi.presentazione} /></p>
+      <div class="azioni">
+        <a class="pulsante" href={rotte.contatti[lingua]}>{t.prenota}</a>
+        <a class="pulsante pulsante--contorno" href={rotte.trattamenti[lingua]}>{testi.vediTrattamenti}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sezione sezione--tenue" aria-labelledby="aree-titolo">
+    <div class="contenitore">
+      <h2 id="aree-titolo">{testi.areeTitolo}</h2>
+      <hr class="linea" />
+      <ul class="griglia griglia--3">
+        {
+          categorie.map((categoria) => (
+            <li>
+              <div class="scheda">
+                <h3>
+                  <a href={`${rotte.trattamenti[lingua]}#${categoria}`}>{nomiCategorie[categoria][lingua]}</a>
+                </h3>
+                <p>{testi.aree[categoria]}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="sezione" aria-labelledby="chi-sono-titolo">
+    <div class="contenitore">
+      <h2 id="chi-sono-titolo">{testi.chiSonoTitolo}</h2>
+      <hr class="linea" />
+      <p class="testo"><Dato valore={testi.chiSonoTesto} /></p>
+      <p><a href={rotte.chiSono[lingua]}>{testi.chiSonoLink}</a></p>
+    </div>
+  </section>
+
+  <InvitoVisita lingua={lingua} />
+</Base>

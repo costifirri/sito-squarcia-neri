@@ -1,0 +1,136 @@
+---
+// BOZZA: da far verificare a un consulente privacy prima della pubblicazione.
+import Base from '../layouts/Base.astro';
+import Dato from '../components/Dato.astro';
+import { studio, indirizzoCompleto } from '../lib/studio';
+import { rotte, type Lingua } from '../i18n/ui';
+
+interface Props {
+  lingua: Lingua;
+}
+
+const { lingua } = Astro.props;
+const titolare = `${studio.nome}, ${indirizzoCompleto}, P. IVA ${studio.partitaIva}, email ${studio.email}`;
+const testi = {
+  it: {
+    titolo: 'Privacy policy',
+    descrizione: `Informativa sul trattamento dei dati personali dei visitatori del sito del ${studio.nome}.`,
+    bozza: '[BOZZA DA VERIFICARE: testo da far controllare a un consulente privacy prima della pubblicazione]',
+    intro:
+      'Questa informativa, resa ai sensi degli articoli 13 e 14 del Regolamento (UE) 2016/679 (GDPR), descrive come vengono trattati i dati personali di chi visita questo sito. Non riguarda il trattamento dei dati dei pazienti nell’ambito dell’attività medica, per il quale viene fornita un’informativa specifica in studio.',
+    sezioni: [
+      { titolo: 'Titolare del trattamento', paragrafi: [`Il titolare del trattamento è ${titolare}.`] },
+      {
+        titolo: 'Dati trattati durante la navigazione',
+        paragrafi: [
+          'Il sito non richiede registrazione, non contiene moduli e non utilizza cookie di profilazione né strumenti di tracciamento o di statistica.',
+          `Come per ogni sito web, i server del fornitore di hosting (${studio.hosting}) ricevono automaticamente alcuni dati tecnici necessari alla connessione, tra cui l’indirizzo IP, la data e l’ora della richiesta e il tipo di browser. Questi dati sono trattati per il solo funzionamento e la sicurezza del sito, sulla base del legittimo interesse del titolare (art. 6, par. 1, lett. f GDPR), e conservati per il tempo previsto dal fornitore.`,
+          '[TESTO DA FORNIRE: sede del fornitore di hosting, eventuale trasferimento dei dati fuori dall’Unione europea e relative garanzie, tempi di conservazione dei log]',
+        ],
+      },
+      {
+        titolo: 'Dati forniti contattando lo studio',
+        paragrafi: [
+          'Chi contatta lo studio per telefono, email o WhatsApp fornisce volontariamente i propri dati (ad esempio nome, recapiti e contenuto del messaggio). Questi dati sono utilizzati solo per rispondere alla richiesta e per fissare l’appuntamento (art. 6, par. 1, lett. b GDPR) e sono conservati per il tempo necessario a tali finalità.',
+          'Si raccomanda di non inviare via email o WhatsApp referti, fotografie o informazioni dettagliate sul proprio stato di salute. WhatsApp è un servizio di WhatsApp Ireland Limited, che tratta i dati secondo la propria informativa.',
+        ],
+      },
+      {
+        titolo: 'Mappa',
+        paragrafi: [
+          'La mappa nella pagina dei contatti è fornita da OpenStreetMap e viene caricata solo dopo che il visitatore preme il pulsante «Mostra la mappa». Da quel momento il browser si collega ai server della OpenStreetMap Foundation, che ricevono l’indirizzo IP del visitatore e trattano i dati secondo la propria informativa.',
+        ],
+      },
+      {
+        titolo: 'Destinatari dei dati',
+        paragrafi: [
+          'I dati non sono diffusi né ceduti a terzi. Possono essere trattati dal fornitore di hosting e dagli altri fornitori di servizi tecnici, che operano come responsabili del trattamento.',
+        ],
+      },
+      {
+        titolo: 'Diritti degli interessati',
+        paragrafi: [
+          'Gli interessati possono chiedere al titolare l’accesso ai propri dati, la rettifica, la cancellazione, la limitazione del trattamento, la portabilità e possono opporsi al trattamento (articoli 15-22 GDPR), scrivendo ai recapiti indicati sopra.',
+          'È inoltre possibile proporre reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it).',
+        ],
+      },
+      { titolo: 'Aggiornamento', paragrafi: ['Ultimo aggiornamento: [DATA AGGIORNAMENTO PRIVACY].'] },
+    ],
+  },
+  en: {
+    titolo: 'Privacy policy',
+    descrizione: `Information on the processing of personal data of visitors to the website of ${studio.nome}.`,
+    bozza: '[BOZZA DA VERIFICARE: testo da far controllare a un consulente privacy prima della pubblicazione]',
+    intro:
+      'This notice, provided under Articles 13 and 14 of Regulation (EU) 2016/679 (GDPR), describes how the personal data of visitors to this website are processed. It does not cover the processing of patient data in the course of medical practice, for which a specific notice is provided at the clinic.',
+    sezioni: [
+      { titolo: 'Data controller', paragrafi: [`The data controller is ${titolare}.`] },
+      {
+        titolo: 'Data processed while browsing',
+        paragrafi: [
+          'This website requires no registration, contains no forms and uses no profiling cookies, tracking or analytics tools.',
+          `As with any website, the servers of the hosting provider (${studio.hosting}) automatically receive some technical data needed for the connection, including the IP address, the date and time of the request and the browser type. These data are processed solely for the operation and security of the website, on the basis of the controller’s legitimate interest (Art. 6(1)(f) GDPR), and are kept for the period set by the provider.`,
+          '[TESTO DA FORNIRE: sede del fornitore di hosting, eventuale trasferimento dei dati fuori dall’Unione europea e relative garanzie, tempi di conservazione dei log, in inglese]',
+        ],
+      },
+      {
+        titolo: 'Data provided when contacting the clinic',
+        paragrafi: [
+          'Anyone contacting the clinic by phone, email or WhatsApp voluntarily provides their data (for example name, contact details and the content of the message). These data are used only to reply to the request and to arrange the appointment (Art. 6(1)(b) GDPR) and are kept for as long as necessary for those purposes.',
+          'Please do not send medical reports, photographs or detailed information about your health by email or WhatsApp. WhatsApp is a service of WhatsApp Ireland Limited, which processes data according to its own privacy policy.',
+        ],
+      },
+      {
+        titolo: 'Map',
+        paragrafi: [
+          'The map on the contact page is provided by OpenStreetMap and is loaded only after the visitor presses the “Show the map” button. From that moment the browser connects to the servers of the OpenStreetMap Foundation, which receive the visitor’s IP address and process data according to their own privacy policy.',
+        ],
+      },
+      {
+        titolo: 'Recipients of the data',
+        paragrafi: [
+          'Data are not disclosed or transferred to third parties. They may be processed by the hosting provider and other technical service providers acting as data processors.',
+        ],
+      },
+      {
+        titolo: 'Rights of data subjects',
+        paragrafi: [
+          'Data subjects may ask the controller for access to their data, rectification, erasure, restriction of processing and portability, and may object to processing (Articles 15-22 GDPR), by writing to the contact details above.',
+          'A complaint may also be lodged with the Italian Data Protection Authority (Garante per la protezione dei dati personali, www.garanteprivacy.it).',
+        ],
+      },
+      { titolo: 'Updates', paragrafi: ['Last updated: [DATA AGGIORNAMENTO PRIVACY].'] },
+    ],
+  },
+}[lingua];
+---
+
+<Base
+  lingua={lingua}
+  titolo={testi.titolo}
+  descrizione={testi.descrizione}
+  altraLingua={rotte.privacy[lingua === 'it' ? 'en' : 'it']}
+>
+  <section class="sezione">
+    <div class="contenitore">
+      <h1>{testi.titolo}</h1>
+      <hr class="linea" />
+      <div class="prosa">
+        <p><Dato valore={testi.bozza} /></p>
+        <p>{testi.intro}</p>
+        {
+          testi.sezioni.map((sezione) => (
+            <>
+              <h2>{sezione.titolo}</h2>
+              {sezione.paragrafi.map((paragrafo) => (
+                <p>
+                  <Dato valore={paragrafo} />
+                </p>
+              ))}
+            </>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+import Dato from '../components/Dato.astro';
+import InvitoVisita from '../components/InvitoVisita.astro';
+import { trattamentiDi } from '../lib/trattamenti';
+import { studio } from '../lib/studio';
+import { rotte, categorie, nomiCategorie, type Lingua } from '../i18n/ui';
+
+interface Props {
+  lingua: Lingua;
+}
+
+const { lingua } = Astro.props;
+const schede = await trattamentiDi(lingua);
+const testi = {
+  it: {
+    titolo: 'Trattamenti',
+    descrizione: `Schede informative sui trattamenti di chirurgia estetica, chirurgia ricostruttiva e medicina estetica del ${studio.nome}.`,
+    sommario:
+      'Schede informative sugli interventi e sui trattamenti. Le informazioni hanno carattere generale: indicazioni, alternative e rischi vengono valutati durante la visita.',
+    vuoto: '[TESTO DA FORNIRE: elenco dei trattamenti di questa categoria]',
+  },
+  en: {
+    titolo: 'Treatments',
+    descrizione: `Information sheets on the aesthetic surgery, reconstructive surgery and aesthetic medicine treatments of ${studio.nome}.`,
+    sommario:
+      'Information sheets on procedures and treatments. The information is general in nature: indications, alternatives and risks are assessed during the consultation.',
+    vuoto: '[TESTO DA FORNIRE: elenco dei trattamenti di questa categoria]',
+  },
+}[lingua];
+---
+
+<Base
+  lingua={lingua}
+  titolo={testi.titolo}
+  descrizione={testi.descrizione}
+  altraLingua={rotte.trattamenti[lingua === 'it' ? 'en' : 'it']}
+>
+  <section class="sezione">
+    <div class="contenitore">
+      <h1>{testi.titolo}</h1>
+      <hr class="linea" />
+      <p class="sommario">{testi.sommario}</p>
+      {
+        categorie.map((categoria) => {
+          const dellaCategoria = schede.filter((s) => s.scheda.data.categoria === categoria);
+          return (
+            <section aria-labelledby={categoria} style="margin-top: 3.5rem">
+              <h2 id={categoria}>{nomiCategorie[categoria][lingua]}</h2>
+              {dellaCategoria.length === 0 ? (
+                <p>
+                  <Dato valore={testi.vuoto} />
+                </p>
+              ) : (
+                <ul class="griglia griglia--2">
+                  {dellaCategoria.map(({ scheda, url }) => (
+                    <li>
+                      <div class="scheda">
+                        <h3>
+                          <a href={url}>
+                            <Dato valore={scheda.data.titolo} />
+                          </a>
+                        </h3>
+                        <p>
+                          <Dato valore={scheda.data.descrizione} />
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          );
+        })
+      }
+    </div>
+  </section>
+  <InvitoVisita lingua={lingua} />
+</Base>

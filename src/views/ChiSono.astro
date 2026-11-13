@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import Dato from '../components/Dato.astro';
+import InvitoVisita from '../components/InvitoVisita.astro';
+import { studio } from '../lib/studio';
+import { ui, rotte, type Lingua } from '../i18n/ui';
+
+interface Props {
+  lingua: Lingua;
+}
+
+const { lingua } = Astro.props;
+const t = ui[lingua];
+const testi = {
+  it: {
+    titolo: 'Chi sono',
+    descrizione: `Formazione, specializzazione, iscrizione all'Ordine dei Medici ed esperienza professionale del ${studio.nome}.`,
+    sezioni: [
+      {
+        titolo: 'Formazione',
+        testo: '[TESTO DA FORNIRE: laurea in Medicina e Chirurgia, università, anno, eventuale abilitazione]',
+      },
+      {
+        titolo: 'Specializzazione',
+        testo:
+          '[TESTO DA FORNIRE: specializzazione in Chirurgia plastica, ricostruttiva ed estetica, università, anno; eventuali master o perfezionamenti]',
+      },
+      { titolo: "Iscrizione all'Ordine", testo: `${t.ordine(studio.ordine.provincia, studio.ordine.numero)}.` },
+      {
+        titolo: 'Esperienza',
+        testo:
+          '[TESTO DA FORNIRE: strutture in cui ha lavorato o lavora, ruoli, ambiti di attività, eventuali società scientifiche di appartenenza]',
+      },
+    ],
+  },
+  en: {
+    titolo: 'About',
+    descrizione: `Education, specialist training, Medical Council registration and professional experience of ${studio.nome}.`,
+    sezioni: [
+      {
+        titolo: 'Education',
+        testo: '[TESTO DA FORNIRE: laurea in Medicina e Chirurgia, università, anno, eventuale abilitazione, in inglese]',
+      },
+      {
+        titolo: 'Specialist training',
+        testo:
+          '[TESTO DA FORNIRE: specializzazione in Chirurgia plastica, ricostruttiva ed estetica, università, anno; eventuali master o perfezionamenti, in inglese]',
+      },
+      {
+        titolo: 'Medical Council registration',
+        testo: `${t.ordine(studio.ordine.provincia, studio.ordine.numero)}.`,
+      },
+      {
+        titolo: 'Experience',
+        testo:
+          '[TESTO DA FORNIRE: strutture in cui ha lavorato o lavora, ruoli, ambiti di attività, eventuali società scientifiche di appartenenza, in inglese]',
+      },
+    ],
+  },
+}[lingua];
+---
+
+<Base
+  lingua={lingua}
+  titolo={testi.titolo}
+  descrizione={testi.descrizione}
+  altraLingua={rotte.chiSono[lingua === 'it' ? 'en' : 'it']}
+>
+  <section class="sezione">
+    <div class="contenitore">
+      <p class="occhiello">{testi.titolo}</p>
+      <h1>{studio.nome}</h1>
+      <hr class="linea" />
+      <p class="sommario">{studio.qualifica[lingua]}</p>
+      <div class="prosa">
+        {
+          testi.sezioni.map((sezione) => (
+            <>
+              <h2>{sezione.titolo}</h2>
+              <p>
+                <Dato valore={sezione.testo} />
+              </p>
+            </>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <InvitoVisita lingua={lingua} />
+</Base>

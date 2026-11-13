@@ -1,0 +1,9 @@
+# Fine riga uniforme (LF) su tutti i sistemi, Windows compreso
+* text=auto eol=lf
+*.svg text eol=lf
+*.png binary
+*.jpg binary
+*.webp binary
+*.woff2 binary
+*.pdf binary
+*.zip binary

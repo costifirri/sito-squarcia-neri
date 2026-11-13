@@ -1,0 +1,13 @@
+---
+import Trattamento from '../../views/Trattamento.astro';
+import { trattamentiDi } from '../../lib/trattamenti';
+
+export async function getStaticPaths() {
+  const schede = await trattamentiDi('it');
+  return schede.map(({ scheda, slug }) => ({ params: { slug }, props: { scheda } }));
+}
+
+const { scheda } = Astro.props;
+---
+
+<Trattamento lingua="it" scheda={scheda} />

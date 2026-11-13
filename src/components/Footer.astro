@@ -1,0 +1,54 @@
+---
+import logoLuminoso from '../../brand/gsn-orizzontale-trasparente.svg?url';
+import Dato from './Dato.astro';
+import { studio, linkTelefono, linkEmail, indirizzoCompleto } from '../lib/studio';
+import { ui, rotte, type Lingua } from '../i18n/ui';
+
+interface Props {
+  lingua: Lingua;
+}
+
+const { lingua } = Astro.props;
+const t = ui[lingua];
+const anno = new Date().getFullYear();
+---
+
+<footer class="pie scuro">
+  <div class="contenitore">
+    <img class="pie__logo" src={logoLuminoso} alt={studio.nome} width="2400" height="800" loading="lazy" />
+    <div class="pie__colonne">
+      <div>
+        <h2>{t.footerStudio}</h2>
+        <p><Dato valore={indirizzoCompleto} /></p>
+        <p>
+          {t.telefono}:{' '}
+          {linkTelefono ? <a href={linkTelefono}>{studio.telefono}</a> : <Dato valore={studio.telefono} />}
+        </p>
+        <p>
+          {t.email}:{' '}
+          {linkEmail ? <a href={linkEmail}>{studio.email}</a> : <Dato valore={studio.email} />}
+        </p>
+      </div>
+      <div>
+        <h2>{t.footerPagine}</h2>
+        <ul>
+          <li><a href={rotte.chiSono[lingua]}>{t.nav.chiSono}</a></li>
+          <li><a href={rotte.trattamenti[lingua]}>{t.nav.trattamenti}</a></li>
+          <li><a href={rotte.contatti[lingua]}>{t.nav.contatti}</a></li>
+          <li><a href={rotte.privacy[lingua]}>{t.privacy}</a></li>
+          <li><a href={rotte.cookie[lingua]}>{t.cookie}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>{t.footerNote}</h2>
+        <p>{studio.nome}</p>
+        <p class="secondario">{studio.qualifica[lingua]}</p>
+        <p><Dato valore={t.ordine(studio.ordine.provincia, studio.ordine.numero)} /></p>
+        <p>{t.partitaIva} <Dato valore={studio.partitaIva} /></p>
+      </div>
+    </div>
+    <p class="pie__fondo">
+      © {anno} {studio.nome}. {t.avvisoSanitario}
+    </p>
+  </div>
+</footer>

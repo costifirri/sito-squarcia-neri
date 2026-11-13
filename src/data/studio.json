@@ -1,0 +1,33 @@
+{
+  "pubblicato": false,
+  "dominio": "[DOMINIO]",
+  "nome": "Dr. Giorgio Squarcia Neri",
+  "nomeSenzaTitolo": "Giorgio Squarcia Neri",
+  "qualifica": {
+    "it": "Medico chirurgo, specialista in chirurgia plastica, ricostruttiva ed estetica",
+    "en": "Physician and surgeon, specialist in plastic, reconstructive and aesthetic surgery"
+  },
+  "indirizzo": "[INDIRIZZO STUDIO]",
+  "cap": "[CAP]",
+  "citta": "[CITTÀ]",
+  "provincia": "[SIGLA PROVINCIA]",
+  "telefono": "[TELEFONO]",
+  "whatsapp": "[NUMERO WHATSAPP]",
+  "email": "[EMAIL]",
+  "partitaIva": "[PARTITA IVA]",
+  "ordine": {
+    "provincia": "[PROVINCIA ORDINE DEI MEDICI]",
+    "numero": "[NUMERO ISCRIZIONE ORDINE]"
+  },
+  "orari": [
+    {
+      "giorni": { "it": "[GIORNI DI APERTURA]", "en": "[GIORNI DI APERTURA]" },
+      "ore": "[ORARI]"
+    }
+  ],
+  "mappa": {
+    "latitudine": "[LATITUDINE]",
+    "longitudine": "[LONGITUDINE]"
+  },
+  "hosting": "[FORNITORE HOSTING]"
+}

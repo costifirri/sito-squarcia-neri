@@ -1,0 +1,43 @@
+---
+import { ui, rotte, type Lingua } from '../i18n/ui';
+import { linkTelefono, studio } from '../lib/studio';
+
+interface Props {
+  lingua: Lingua;
+}
+
+const { lingua } = Astro.props;
+const t = ui[lingua];
+const testi = {
+  it: {
+    titolo: 'Prenotare una visita',
+    testo:
+      'Ogni indicazione viene valutata durante la visita, in base alla situazione clinica della singola persona. Per fissare un appuntamento è possibile contattare lo studio.',
+    chiama: 'Chiama lo studio',
+  },
+  en: {
+    titolo: 'Booking a consultation',
+    testo:
+      'Every indication is assessed during the consultation, based on the clinical situation of the individual person. To arrange an appointment, please contact the clinic.',
+    chiama: 'Call the clinic',
+  },
+}[lingua];
+---
+
+<section class="sezione scuro" aria-labelledby="invito-titolo">
+  <div class="contenitore">
+    <h2 id="invito-titolo">{testi.titolo}</h2>
+    <hr class="linea" />
+    <p class="testo secondario">{testi.testo}</p>
+    <div class="azioni">
+      <a class="pulsante" href={rotte.contatti[lingua]}>{t.prenota}</a>
+      {
+        linkTelefono && (
+          <a class="pulsante pulsante--contorno" href={linkTelefono}>
+            {testi.chiama}: {studio.telefono}
+          </a>
+        )
+      }
+    </div>
+  </div>
+</section>

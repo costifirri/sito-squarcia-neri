@@ -1,0 +1,9 @@
+---
+// Mostra un testo evidenziando i segnaposto tra parentesi quadre, es. "[TELEFONO]".
+interface Props {
+  valore: string;
+}
+const { valore } = Astro.props;
+const parti = valore.split(/(\[[^\]]+\])/g).filter(Boolean);
+---
+{parti.map((parte) => (parte.startsWith('[') ? <mark class="segnaposto">{parte}</mark> : parte))}

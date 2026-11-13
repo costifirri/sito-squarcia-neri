@@ -1,0 +1,73 @@
+---
+// Mappa OpenStreetMap: non carica nulla da server esterni finché l'utente non preme il pulsante.
+import Dato from './Dato.astro';
+import { studio, mancante, indirizzoCompleto } from '../lib/studio';
+import type { Lingua } from '../i18n/ui';
+
+interface Props {
+  lingua: Lingua;
+}
+
+const { lingua } = Astro.props;
+const { latitudine, longitudine } = studio.mappa;
+const pronta = !mancante(latitudine) && !mancante(longitudine);
+const lat = Number(latitudine);
+const lon = Number(longitudine);
+const d = 0.004;
+const src = pronta
+  ? `https://www.openstreetmap.org/export/embed.html?bbox=${lon - d},${lat - d / 2},${lon + d},${lat + d / 2}&layer=mapnik&marker=${lat},${lon}`
+  : '';
+const linkEsterno = pronta ? `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=17/${lat}/${lon}` : '';
+const t = {
+  it: {
+    mostra: 'Mostra la mappa',
+    avviso:
+      'La mappa è fornita da OpenStreetMap. Premendo il pulsante il tuo browser si collega ai server di OpenStreetMap, che ricevono il tuo indirizzo IP.',
+    apri: 'Apri la mappa in una nuova scheda',
+    titolo: 'Mappa dello studio',
+  },
+  en: {
+    mostra: 'Show the map',
+    avviso:
+      'The map is provided by OpenStreetMap. By pressing the button your browser connects to the OpenStreetMap servers, which receive your IP address.',
+    apri: 'Open the map in a new tab',
+    titolo: 'Map of the clinic',
+  },
+}[lingua];
+---
+
+<div class="mappa" data-mappa data-src={src} data-titolo={t.titolo}>
+  {
+    pronta ? (
+      <>
+        <p>{t.avviso}</p>
+        <button class="pulsante" type="button" data-mappa-pulsante>
+          {t.mostra}
+        </button>
+        <a href={linkEsterno} target="_blank" rel="noopener noreferrer">
+          {t.apri}
+        </a>
+      </>
+    ) : (
+      <p>
+        <Dato valore="[MAPPA: inserire latitudine e longitudine in src/data/studio.json]" />
+        <br />
+        <Dato valore={indirizzoCompleto} />
+      </p>
+    )
+  }
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-mappa]').forEach((riquadro) => {
+    const pulsante = riquadro.querySelector('[data-mappa-pulsante]');
+    pulsante?.addEventListener('click', () => {
+      const cornice = document.createElement('iframe');
+      cornice.src = riquadro.dataset.src ?? '';
+      cornice.title = riquadro.dataset.titolo ?? '';
+      cornice.referrerPolicy = 'no-referrer';
+      riquadro.replaceChildren(cornice);
+      riquadro.classList.add('mappa--caricata');
+    });
+  });
+</script>

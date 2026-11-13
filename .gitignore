@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+.DS_Store
+Thumbs.db
+# Pacchetto originale dell'immagine coordinata (bozze di stampa): resta solo sul computer
+GSN-immagine-coordinata.zip

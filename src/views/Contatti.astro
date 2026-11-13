@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+import Dato from '../components/Dato.astro';
+import Mappa from '../components/Mappa.astro';
+import { studio, linkTelefono, linkEmail, linkWhatsapp, indirizzoCompleto } from '../lib/studio';
+import { ui, rotte, type Lingua } from '../i18n/ui';
+
+interface Props {
+  lingua: Lingua;
+}
+
+const { lingua } = Astro.props;
+const t = ui[lingua];
+const testi = {
+  it: {
+    titolo: 'Studio e contatti',
+    descrizione: `Indirizzo, orari, telefono, email e WhatsApp dello studio del ${studio.nome}. Le visite si svolgono su appuntamento.`,
+    sommario: 'Le visite si svolgono su appuntamento. Per prenotare è possibile telefonare, scrivere una email o un messaggio WhatsApp.',
+    contatti: 'Contatti',
+    doveSiamo: 'Dove si trova lo studio',
+    riservatezza:
+      'Per la tua riservatezza, non inviare referti, fotografie o informazioni dettagliate sulla tua salute via email o WhatsApp: se ne parla direttamente durante la visita.',
+  },
+  en: {
+    titolo: 'Clinic and contact',
+    descrizione: `Address, opening hours, phone, email and WhatsApp of the clinic of ${studio.nome}. Consultations are by appointment.`,
+    sommario: 'Consultations are by appointment. To book, you can call, send an email or a WhatsApp message.',
+    contatti: 'Contact details',
+    doveSiamo: 'Where to find the clinic',
+    riservatezza:
+      'For your privacy, please do not send medical reports, photographs or detailed information about your health by email or WhatsApp: these are discussed in person during the consultation.',
+  },
+}[lingua];
+---
+
+<Base
+  lingua={lingua}
+  titolo={testi.titolo}
+  descrizione={testi.descrizione}
+  altraLingua={rotte.contatti[lingua === 'it' ? 'en' : 'it']}
+>
+  <section class="sezione">
+    <div class="contenitore">
+      <h1>{testi.titolo}</h1>
+      <hr class="linea" />
+      <p class="sommario">{testi.sommario}</p>
+
+      <div class="due-colonne" style="margin-top: 3rem">
+        <div>
+          <h2>{testi.contatti}</h2>
+          <dl class="dati">
+            <div>
+              <dt>{t.indirizzo}</dt>
+              <dd><Dato valore={indirizzoCompleto} /></dd>
+            </div>
+            <div>
+              <dt>{t.orari}</dt>
+              {
+                studio.orari.map((riga) => (
+                  <dd>
+                    <Dato valore={`${riga.giorni[lingua]}: ${riga.ore}`} />
+                  </dd>
+                ))
+              }
+            </div>
+            <div>
+              <dt>{t.telefono}</dt>
+              <dd>
+                {linkTelefono ? <a href={linkTelefono}>{studio.telefono}</a> : <Dato valore={studio.telefono} />}
+              </dd>
+            </div>
+            <div>
+              <dt>{t.email}</dt>
+              <dd>{linkEmail ? <a href={linkEmail}>{studio.email}</a> : <Dato valore={studio.email} />}</dd>
+            </div>
+            <div>
+              <dt>{t.whatsapp}</dt>
+              <dd>
+                {
+                  linkWhatsapp ? (
+                    <a class="pulsante" href={linkWhatsapp} target="_blank" rel="noopener noreferrer">
+                      {t.scriviWhatsapp}
+                    </a>
+                  ) : (
+                    <Dato valore={studio.whatsapp} />
+                  )
+                }
+              </dd>
+            </div>
+          </dl>
+          <p class="secondario" style="margin-top: 2rem; font-size: 0.95rem">{testi.riservatezza}</p>
+        </div>
+        <div>
+          <h2>{testi.doveSiamo}</h2>
+          <Mappa lingua={lingua} />
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,72 @@
+---
+import logoOrizzontale from '../../brand/gsn-orizzontale-colore.svg?url';
+import logoDueRighe from '../../brand/gsn-due-righe-colore.svg?url';
+import { ui, rotte, type Lingua } from '../i18n/ui';
+
+interface Props {
+  lingua: Lingua;
+  altraLingua: string;
+}
+
+const { lingua, altraLingua } = Astro.props;
+const t = ui[lingua];
+const altra: Lingua = lingua === 'it' ? 'en' : 'it';
+const percorso = Astro.url.pathname;
+const voci = (['home', 'chiSono', 'trattamenti', 'contatti'] as const).map((chiave) => {
+  const href = rotte[chiave][lingua];
+  const attiva = chiave === 'home' ? percorso === href : percorso.startsWith(href);
+  return { href, etichetta: t.nav[chiave], attiva };
+});
+---
+
+<header class="intestazione">
+  <div class="contenitore intestazione__riga">
+    <a class="intestazione__logo" href={rotte.home[lingua]}>
+      <picture>
+        <source media="(min-width: 30rem)" srcset={logoOrizzontale} />
+        <img src={logoDueRighe} alt={t.logoAlt} />
+      </picture>
+    </a>
+    <button class="menu-pulsante" type="button" aria-expanded="false" aria-controls="nav-principale">
+      <span class="menu-pulsante__icona" aria-hidden="true"></span>
+      {t.menu}
+    </button>
+    <nav class="nav" id="nav-principale" aria-label={t.navPrincipale}>
+      <ul>
+        {
+          voci.map((voce) => (
+            <li>
+              <a href={voce.href} aria-current={voce.attiva ? 'page' : undefined}>
+                {voce.etichetta}
+              </a>
+            </li>
+          ))
+        }
+        <li class="nav__lingua">
+          <a href={altraLingua} lang={altra} hreflang={altra}>
+            <span aria-hidden="true">{t.altraLinguaSigla}</span>
+            <span class="nascosto-visivamente">{t.altraLingua}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const pulsante = document.querySelector<HTMLButtonElement>('.menu-pulsante');
+  const nav = document.getElementById('nav-principale');
+  if (pulsante && nav) {
+    pulsante.addEventListener('click', () => {
+      const aperta = nav.classList.toggle('nav--aperta');
+      pulsante.setAttribute('aria-expanded', String(aperta));
+    });
+    document.addEventListener('keydown', (evento) => {
+      if (evento.key === 'Escape' && nav.classList.contains('nav--aperta')) {
+        nav.classList.remove('nav--aperta');
+        pulsante.setAttribute('aria-expanded', 'false');
+        pulsante.focus();
+      }
+    });
+  }
+</script>

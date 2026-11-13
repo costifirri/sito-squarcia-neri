@@ -1,0 +1,96 @@
+---
+import Base from '../layouts/Base.astro';
+import { studio } from '../lib/studio';
+import { rotte, type Lingua } from '../i18n/ui';
+
+interface Props {
+  lingua: Lingua;
+}
+
+const { lingua } = Astro.props;
+const testi = {
+  it: {
+    titolo: 'Cookie policy',
+    descrizione: `Informazioni sull'uso dei cookie nel sito del ${studio.nome}: il sito non utilizza cookie di tracciamento.`,
+    sezioni: [
+      {
+        titolo: 'Questo sito non usa cookie di tracciamento',
+        paragrafi: [
+          'Il sito non installa cookie di profilazione, non usa strumenti di statistica e non incorpora contenuti di terze parti che ne installino al caricamento delle pagine. Per questo motivo non viene mostrato alcun banner di consenso.',
+          'I caratteri tipografici e le immagini sono ospitati sullo stesso server del sito e non vengono richiesti a servizi esterni.',
+        ],
+      },
+      {
+        titolo: 'Contenuti esterni caricati solo su richiesta',
+        paragrafi: [
+          'La mappa nella pagina dei contatti è fornita da OpenStreetMap e viene caricata solo dopo che il visitatore preme il pulsante «Mostra la mappa». Da quel momento OpenStreetMap può ricevere l’indirizzo IP del visitatore e utilizzare propri cookie tecnici.',
+          'I collegamenti a WhatsApp e alle mappe esterne aprono servizi di terzi, soggetti alle rispettive informative.',
+        ],
+      },
+      {
+        titolo: 'Come gestire i cookie dal browser',
+        paragrafi: [
+          'È sempre possibile cancellare o bloccare i cookie dalle impostazioni del proprio browser.',
+        ],
+      },
+    ],
+    privacy: 'Per maggiori informazioni sul trattamento dei dati personali si veda la',
+    privacyLink: 'privacy policy',
+  },
+  en: {
+    titolo: 'Cookie policy',
+    descrizione: `Information on the use of cookies on the website of ${studio.nome}: the website does not use tracking cookies.`,
+    sezioni: [
+      {
+        titolo: 'This website does not use tracking cookies',
+        paragrafi: [
+          'The website sets no profiling cookies, uses no analytics tools and embeds no third-party content that would set them when pages load. For this reason no consent banner is shown.',
+          'Fonts and images are hosted on the same server as the website and are not requested from external services.',
+        ],
+      },
+      {
+        titolo: 'External content loaded only on request',
+        paragrafi: [
+          'The map on the contact page is provided by OpenStreetMap and is loaded only after the visitor presses the “Show the map” button. From that moment OpenStreetMap may receive the visitor’s IP address and use its own technical cookies.',
+          'Links to WhatsApp and to external maps open third-party services, which are subject to their own policies.',
+        ],
+      },
+      {
+        titolo: 'Managing cookies in your browser',
+        paragrafi: ['You can always delete or block cookies in your browser settings.'],
+      },
+    ],
+    privacy: 'For more information on the processing of personal data, see the',
+    privacyLink: 'privacy policy',
+  },
+}[lingua];
+---
+
+<Base
+  lingua={lingua}
+  titolo={testi.titolo}
+  descrizione={testi.descrizione}
+  altraLingua={rotte.cookie[lingua === 'it' ? 'en' : 'it']}
+>
+  <section class="sezione">
+    <div class="contenitore">
+      <h1>{testi.titolo}</h1>
+      <hr class="linea" />
+      <div class="prosa">
+        {
+          testi.sezioni.map((sezione) => (
+            <>
+              <h2>{sezione.titolo}</h2>
+              {sezione.paragrafi.map((paragrafo) => (
+                <p>{paragrafo}</p>
+              ))}
+            </>
+          ))
+        }
+        <p>
+          {testi.privacy} <a href={rotte.privacy[lingua]}>{testi.privacyLink}</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

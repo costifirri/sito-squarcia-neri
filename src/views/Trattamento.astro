@@ -1,0 +1,54 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Dato from '../components/Dato.astro';
+import InvitoVisita from '../components/InvitoVisita.astro';
+import { traduzioneDi } from '../lib/trattamenti';
+import { ui, rotte, nomiCategorie, type Lingua } from '../i18n/ui';
+
+interface Props {
+  lingua: Lingua;
+  scheda: CollectionEntry<'trattamenti'>;
+}
+
+const { lingua, scheda } = Astro.props;
+const { Content } = await render(scheda);
+const altraLingua = await traduzioneDi(scheda.data.chiave, lingua);
+const t = ui[lingua];
+const testi = {
+  it: {
+    briciole: 'Percorso',
+    nota: 'Questa scheda ha carattere informativo generale e non sostituisce la visita medica. Indicazioni, alternative, rischi e decorso variano da persona a persona e vengono discussi durante la visita.',
+  },
+  en: {
+    briciole: 'Breadcrumb',
+    nota: 'This sheet provides general information and does not replace a medical consultation. Indications, alternatives, risks and recovery vary from person to person and are discussed during the consultation.',
+  },
+}[lingua];
+---
+
+<Base lingua={lingua} titolo={scheda.data.titolo} descrizione={scheda.data.descrizione} altraLingua={altraLingua}>
+  <article class="sezione">
+    <div class="contenitore">
+      <nav class="briciole" aria-label={testi.briciole}>
+        <ol>
+          <li><a href={rotte.trattamenti[lingua]}>{t.nav.trattamenti}</a></li>
+          <li>
+            <a href={`${rotte.trattamenti[lingua]}#${scheda.data.categoria}`}>
+              {nomiCategorie[scheda.data.categoria][lingua]}
+            </a>
+          </li>
+        </ol>
+      </nav>
+      <h1><Dato valore={scheda.data.titolo} /></h1>
+      <hr class="linea" />
+      <p class="sommario"><Dato valore={scheda.data.descrizione} /></p>
+      <div class="prosa">
+        <Content />
+        <p class="secondario" style="margin-top: 3rem; font-size: 0.95rem">{testi.nota}</p>
+      </div>
+    </div>
+  </article>
+  <InvitoVisita lingua={lingua} />
+</Base>
