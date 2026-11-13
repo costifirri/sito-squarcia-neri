@@ -20,7 +20,7 @@ Da eseguire nel terminale, dentro la cartella del progetto.
   `src/data/studio.json`. Vanno sostituiti i valori tra parentesi quadre, es. `"[TELEFONO]"`.
 - **Trattamenti**: un file per trattamento in `src/content/trattamenti/it/` e la traduzione in
   `src/content/trattamenti/en/`. Le due versioni devono avere la stessa `chiave`. Il nome del file
-  diventa l'indirizzo della pagina. I file `modello-*` e `template-*` sono esempi da duplicare e poi eliminare.
+  diventa l'indirizzo della pagina. Il campo `gruppo` (es. Seno, Filler) raggruppa le schede nell'indice.
 - **Testi delle pagine** (home, chi sono, contatti, privacy, cookie): cartella `src/views/`, con il testo
   italiano e quello inglese uno sotto l'altro nello stesso file.
 - **Menu, piè di pagina, etichette**: `src/i18n/ui.ts`.
