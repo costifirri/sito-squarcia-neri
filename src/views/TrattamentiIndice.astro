@@ -28,6 +28,18 @@ const testi = {
     vuoto: '[TESTO DA FORNIRE: elenco dei trattamenti di questa categoria]',
   },
 }[lingua];
+
+// Per ogni categoria, le schede raccolte per sottogruppo nell'ordine in cui compaiono.
+const perCategoria = categorie.map((categoria) => {
+  const gruppi: { nome: string | undefined; schede: typeof schede }[] = [];
+  for (const voce of schede.filter((s) => s.scheda.data.categoria === categoria)) {
+    const nome = voce.scheda.data.gruppo;
+    const gruppo = gruppi.find((g) => g.nome === nome);
+    if (gruppo) gruppo.schede.push(voce);
+    else gruppi.push({ nome, schede: [voce] });
+  }
+  return { categoria, gruppi };
+});
 ---
 
 <Base
@@ -42,25 +54,27 @@ const testi = {
       <hr class="linea" />
       <p class="sommario">{testi.sommario}</p>
       {
-        categorie.map((categoria) => {
-          const dellaCategoria = schede.filter((s) => s.scheda.data.categoria === categoria);
-          return (
-            <section aria-labelledby={categoria} style="margin-top: 3.5rem">
-              <h2 id={categoria}>{nomiCategorie[categoria][lingua]}</h2>
-              {dellaCategoria.length === 0 ? (
-                <p>
-                  <Dato valore={testi.vuoto} />
-                </p>
-              ) : (
-                <ul class="griglia griglia--2">
-                  {dellaCategoria.map(({ scheda, url }) => (
+        perCategoria.map(({ categoria, gruppi }) => (
+          <section class="categoria" aria-labelledby={categoria}>
+            <h2 id={categoria}>{nomiCategorie[categoria][lingua]}</h2>
+            <hr class="linea" />
+            {gruppi.length === 0 && (
+              <p>
+                <Dato valore={testi.vuoto} />
+              </p>
+            )}
+            {gruppi.map((gruppo) => (
+              <div class="gruppo">
+                {gruppo.nome && <h3 class="gruppo__titolo">{gruppo.nome}</h3>}
+                <ul class="griglia griglia--3">
+                  {gruppo.schede.map(({ scheda, url }) => (
                     <li>
                       <div class="scheda">
-                        <h3>
+                        <h4>
                           <a href={url}>
                             <Dato valore={scheda.data.titolo} />
                           </a>
-                        </h3>
+                        </h4>
                         <p>
                           <Dato valore={scheda.data.descrizione} />
                         </p>
@@ -68,10 +82,10 @@ const testi = {
                     </li>
                   ))}
                 </ul>
-              )}
-            </section>
-          );
-        })
+              </div>
+            ))}
+          </section>
+        ))
       }
     </div>
   </section>

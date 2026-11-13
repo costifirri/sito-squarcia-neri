@@ -11,7 +11,13 @@ const trattamenti = defineCollection({
     categoria: z.enum(['chirurgia-estetica', 'chirurgia-ricostruttiva', 'medicina-estetica']),
     // Stessa "chiave" nella scheda italiana e in quella inglese: collega le due traduzioni.
     chiave: z.string(),
+    // Sottogruppo mostrato nell'indice (es. "Seno", "Filler"). Facoltativo.
+    gruppo: z.string().optional(),
     ordine: z.number().default(100),
+    // Dati sintetici facoltativi, mostrati in un riquadro sotto il testo.
+    durata: z.string().optional(),
+    anestesia: z.string().optional(),
+    ritorno: z.string().optional(),
   }),
 });
 

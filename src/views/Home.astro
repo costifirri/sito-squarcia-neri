@@ -26,7 +26,13 @@ const testi = {
       'medicina-estetica': 'Trattamenti ambulatoriali non chirurgici.',
     },
     chiSonoTitolo: 'Chi sono',
-    chiSonoTesto: '[TESTO DA FORNIRE: due o tre righe di presentazione del medico per la home]',
+    chiSonoTesto: "Il Dr. Giorgio Squarcia Neri è specialista in Chirurgia Plastica, Ricostruttiva ed Estetica. È autore di diverse pubblicazioni scientifiche e interviene come relatore ai principali congressi nazionali di chirurgia plastica. Ha arricchito la sua formazione con esperienze in alcuni dei più importanti centri europei.",
+    introTitolo: 'Un percorso su misura',
+    intro: [
+      "Il volto e il corpo sono la prima forma del nostro racconto: parlano di noi prima di ogni parola, custodiscono la nostra storia e ne conservano le tracce. Accade, talvolta, che l’immagine riflessa nello specchio smetta di somigliarci: perché il tempo ne ha addolcito i contorni, perché la vita ne ha cambiato le forme, o perché la natura non ci ha concesso ciò che sentivamo nostro.",
+      "È in questo spazio sottile, tra ciò che si è e ciò che si mostra, che la chirurgia plastica e la medicina estetica trovano il loro senso più autentico. Non inventano un corpo nuovo né impongono un modello da imitare: cercano l’armonia che già appartiene a ogni persona, la portano alla luce e la restituiscono con discrezione. Perché la bellezza non è un canone da riprodurre, ma un equilibrio unico e irripetibile, diverso per ciascuno.",
+      "Ogni percorso comincia da un ascolto. Dalle parole, dai desideri e dalle esitazioni di chi si affida prende forma un progetto pensato come un abito cucito su misura: per l’anima, prima ancora che per il corpo. Il risultato non deve mai rivelare l’intervento, ma soltanto la persona: naturale, elegante, armoniosa. Semplicemente sé stessa, finalmente riconosciuta."
+    ],
     chiSonoLink: 'Formazione ed esperienza',
   },
   en: {
@@ -43,7 +49,13 @@ const testi = {
       'medicina-estetica': 'Non-surgical outpatient treatments.',
     },
     chiSonoTitolo: 'About',
-    chiSonoTesto: '[TESTO DA FORNIRE: due o tre righe di presentazione del medico per la home, in inglese]',
+    chiSonoTesto: "Dr. Giorgio Squarcia Neri is a specialist in Plastic, Reconstructive and Aesthetic Surgery. He is the author of several scientific publications and speaks at the main national plastic surgery congresses. He has enriched his training with experience in some of the most important European centres.",
+    introTitolo: 'A tailored pathway',
+    intro: [
+      "The face and the body are the first form of our story: they speak of us before any word, they hold our history and keep its traces. Sometimes the image reflected in the mirror stops resembling us: because time has softened its contours, because life has changed its shapes, or because nature did not grant us what we felt was ours.",
+      "It is in this subtle space, between what one is and what one shows, that plastic surgery and aesthetic medicine find their most authentic meaning. They do not invent a new body or impose a model to imitate: they look for the harmony that already belongs to each person, bring it to light and return it with discretion. Because beauty is not a canon to be reproduced, but a unique and unrepeatable balance, different for everyone.",
+      "Every journey begins with listening. From the words, wishes and hesitations of those who entrust themselves, a plan takes shape, conceived like a made-to-measure garment: for the soul, even before the body. The result should never reveal the procedure, only the person: natural, elegant, harmonious. Simply themselves, finally recognised."
+    ],
     chiSonoLink: 'Training and experience',
   },
 }[lingua];
@@ -64,6 +76,15 @@ const testi = {
       <div class="azioni">
         <a class="pulsante" href={rotte.contatti[lingua]}>{t.prenota}</a>
         <a class="pulsante pulsante--contorno" href={rotte.trattamenti[lingua]}>{testi.vediTrattamenti}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sezione" aria-labelledby="intro-titolo" style="padding-top: 0">
+    <div class="contenitore">
+      <h2 id="intro-titolo" class="nascosto-visivamente">{testi.introTitolo}</h2>
+      <div class="testo introduzione">
+        {testi.intro.map((paragrafo) => <p>{paragrafo}</p>)}
       </div>
     </div>
   </section>
@@ -93,7 +114,7 @@ const testi = {
     <div class="contenitore">
       <h2 id="chi-sono-titolo">{testi.chiSonoTitolo}</h2>
       <hr class="linea" />
-      <p class="testo"><Dato valore={testi.chiSonoTesto} /></p>
+      <p class="testo">{testi.chiSonoTesto}</p>
       <p><a href={rotte.chiSono[lingua]}>{testi.chiSonoLink}</a></p>
     </div>
   </section>

@@ -15,46 +15,35 @@ const testi = {
   it: {
     titolo: 'Chi sono',
     descrizione: `Formazione, specializzazione, iscrizione all'Ordine dei Medici ed esperienza professionale del ${studio.nome}.`,
+    presentazione: [
+      "Il Dr. Giorgio Squarcia Neri è specialista in Chirurgia Plastica, Ricostruttiva ed Estetica. È autore di diverse pubblicazioni scientifiche e interviene come relatore ai principali congressi nazionali di chirurgia plastica. Ha arricchito la sua formazione con esperienze in alcuni dei più importanti centri europei.",
+      "Si dedica alla chirurgia estetica del viso e del corpo, alla chirurgia post-bariatrica e alla medicina estetica. Affianca agli interventi chirurgici trattamenti di medicina estetica mirati, costruendo per ogni paziente un percorso su misura.",
+      "La sua è una chirurgia naturale ed elegante. Il risultato non deve mai rivelare l’intervento, perché la discrezione è l’essenza di questo lavoro. Deve invece valorizzare la persona, restituendole sicurezza e voglia di mostrarsi, perché la vera bellezza non ha bisogno di eccessi."
+    ],
     sezioni: [
       {
-        titolo: 'Formazione',
-        testo: '[TESTO DA FORNIRE: laurea in Medicina e Chirurgia, università, anno, eventuale abilitazione]',
-      },
-      {
-        titolo: 'Specializzazione',
+        titolo: 'Formazione e specializzazione',
         testo:
-          '[TESTO DA FORNIRE: specializzazione in Chirurgia plastica, ricostruttiva ed estetica, università, anno; eventuali master o perfezionamenti]',
+          '[TESTO DA FORNIRE: laurea in Medicina e Chirurgia e specializzazione in Chirurgia plastica, ricostruttiva ed estetica, con università e anno; eventuali master, esperienze nei centri europei, società scientifiche]',
       },
       { titolo: "Iscrizione all'Ordine", testo: `${t.ordine(studio.ordine.provincia, studio.ordine.numero)}.` },
-      {
-        titolo: 'Esperienza',
-        testo:
-          '[TESTO DA FORNIRE: strutture in cui ha lavorato o lavora, ruoli, ambiti di attività, eventuali società scientifiche di appartenenza]',
-      },
     ],
   },
   en: {
     titolo: 'About',
     descrizione: `Education, specialist training, Medical Council registration and professional experience of ${studio.nome}.`,
+    presentazione: [
+      "Dr. Giorgio Squarcia Neri is a specialist in Plastic, Reconstructive and Aesthetic Surgery. He is the author of several scientific publications and speaks at the main national plastic surgery congresses. He has enriched his training with experience in some of the most important European centres.",
+      "He focuses on aesthetic surgery of the face and body, post-bariatric surgery and aesthetic medicine. Alongside surgical procedures he offers targeted aesthetic medicine treatments, building a tailored pathway for each patient.",
+      "His is a natural and elegant surgery. The result should never reveal the procedure, because discretion is the essence of this work. Instead it should enhance the person, restoring confidence and the wish to be seen, because true beauty has no need of excess."
+    ],
     sezioni: [
       {
-        titolo: 'Education',
-        testo: '[TESTO DA FORNIRE: laurea in Medicina e Chirurgia, università, anno, eventuale abilitazione, in inglese]',
-      },
-      {
-        titolo: 'Specialist training',
+        titolo: 'Education and specialist training',
         testo:
-          '[TESTO DA FORNIRE: specializzazione in Chirurgia plastica, ricostruttiva ed estetica, università, anno; eventuali master o perfezionamenti, in inglese]',
+          '[TESTO DA FORNIRE: laurea in Medicina e Chirurgia e specializzazione in Chirurgia plastica, ricostruttiva ed estetica, con università e anno; eventuali master, esperienze nei centri europei, società scientifiche, in inglese]',
       },
-      {
-        titolo: 'Medical Council registration',
-        testo: `${t.ordine(studio.ordine.provincia, studio.ordine.numero)}.`,
-      },
-      {
-        titolo: 'Experience',
-        testo:
-          '[TESTO DA FORNIRE: strutture in cui ha lavorato o lavora, ruoli, ambiti di attività, eventuali società scientifiche di appartenenza, in inglese]',
-      },
+      { titolo: 'Medical Council registration', testo: `${t.ordine(studio.ordine.provincia, studio.ordine.numero)}.` },
     ],
   },
 }[lingua];
@@ -73,6 +62,7 @@ const testi = {
       <hr class="linea" />
       <p class="sommario">{studio.qualifica[lingua]}</p>
       <div class="prosa">
+        {testi.presentazione.map((paragrafo) => <p>{paragrafo}</p>)}
         {
           testi.sezioni.map((sezione) => (
             <>

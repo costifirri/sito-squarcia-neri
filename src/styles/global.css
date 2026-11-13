@@ -638,3 +638,69 @@ a:hover {
   color: #c3cbe6;
   font-size: 0.88rem;
 }
+
+/* Indice dei trattamenti: categorie e sottogruppi */
+.categoria {
+  margin-top: 4rem;
+}
+
+.gruppo {
+  margin-top: 2.5rem;
+}
+
+.gruppo__titolo {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blu);
+  margin: 0;
+}
+
+.gruppo .griglia {
+  margin-top: 1rem;
+}
+
+.scheda h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 0.4rem;
+}
+
+.scheda p {
+  font-size: 0.97rem;
+}
+
+@media (min-width: 36rem) and (max-width: 59.99rem) {
+  .griglia--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Scheda del trattamento: riquadro "In sintesi" e nota finale */
+.dati--riga {
+  gap: 1.25rem 2.5rem;
+}
+
+@media (min-width: 40rem) {
+  .dati--riga {
+    grid-template-columns: repeat(3, auto);
+    justify-content: start;
+  }
+}
+
+.nota {
+  margin-top: 3rem;
+  font-size: 0.95rem;
+}
+
+/* Testo introduttivo della home */
+.introduzione p:first-child {
+  font-size: clamp(1.15rem, 2.6vw, 1.35rem);
+  color: var(--blu-notte);
+}
+
+.introduzione p {
+  color: var(--grigio);
+}
