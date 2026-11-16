@@ -53,6 +53,20 @@ const perCategoria = categorie.map((categoria) => {
       <h1>{testi.titolo}</h1>
       <hr class="linea" />
       <p class="sommario">{testi.sommario}</p>
+      <nav class="salti" aria-label={testi.titolo}>
+        <ul>
+          {
+            perCategoria.map(({ categoria, gruppi }) => (
+              <li>
+                <a href={`#${categoria}`}>
+                  {nomiCategorie[categoria][lingua]}
+                  <span class="salti__numero">{gruppi.reduce((n, g) => n + g.schede.length, 0)}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
       {
         perCategoria.map(({ categoria, gruppi }) => (
           <section class="categoria" aria-labelledby={categoria}>

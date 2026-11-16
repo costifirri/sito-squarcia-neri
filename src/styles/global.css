@@ -678,3 +678,393 @@ a:hover {
 .spezza {
   overflow-wrap: anywhere;
 }
+
+/* ------------------------------------------------------------------
+   Rifiniture estetiche
+   ------------------------------------------------------------------ */
+
+/* Apertura della home su fondo blu notte, con il monogramma luminoso */
+.apertura--scura {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3.5rem, 10vw, 7rem);
+  background:
+    radial-gradient(60rem 34rem at 88% 30%, rgba(23, 71, 214, 0.38), transparent 62%),
+    radial-gradient(40rem 26rem at 0% 110%, rgba(63, 224, 255, 0.1), transparent 60%),
+    var(--blu-notte);
+}
+
+/* griglia sottile, appena visibile */
+.apertura--scura::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(63, 224, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(63, 224, 255, 0.045) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  mask-image: linear-gradient(90deg, transparent, #000 55%);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 55%);
+  pointer-events: none;
+}
+
+.apertura--scura::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--azzurro), rgba(63, 224, 255, 0) 70%);
+  opacity: 0.6;
+}
+
+.apertura__griglia {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+}
+
+.apertura--scura h1 {
+  color: var(--bianco);
+}
+
+.apertura--scura .sommario {
+  color: #d5dbf0;
+}
+
+.apertura__monogramma {
+  display: none;
+}
+
+@media (min-width: 60rem) {
+  .apertura__griglia {
+    grid-template-columns: 1.25fr 0.75fr;
+  }
+
+  .apertura__monogramma {
+    display: block;
+    width: 130%;
+    max-width: none;
+    margin: -18% -15% -18% -15%;
+    justify-self: center;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .apertura__testo > * {
+    animation: entra 0.7s ease both;
+  }
+
+  .apertura__testo > :nth-child(2) {
+    animation-delay: 0.08s;
+  }
+
+  .apertura__testo > :nth-child(3) {
+    animation-delay: 0.16s;
+  }
+
+  .apertura__testo > :nth-child(4) {
+    animation-delay: 0.24s;
+  }
+
+  .apertura__testo > :nth-child(5) {
+    animation-delay: 0.32s;
+  }
+
+  .apertura__monogramma {
+    animation: appare 1.2s ease 0.2s both;
+  }
+}
+
+@keyframes entra {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+}
+
+@keyframes appare {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Testo introduttivo della home: apertura grande, seguito su due colonne */
+.introduzione {
+  display: grid;
+  gap: 2rem;
+}
+
+.introduzione p,
+.introduzione p:first-child {
+  font-size: inherit;
+  color: var(--grigio);
+  margin-bottom: 1.1em;
+}
+
+.introduzione p.introduzione__apertura {
+  font-size: clamp(1.3rem, 3.2vw, 1.75rem);
+  line-height: 1.45;
+  color: var(--blu-notte);
+  max-width: 52rem;
+  margin: 0;
+  padding-left: 1.5rem;
+  background: linear-gradient(180deg, var(--blu), rgba(23, 71, 214, 0)) no-repeat left top / 1px 100%;
+}
+
+@media (min-width: 56rem) {
+  .introduzione {
+    gap: 3rem;
+  }
+
+  .introduzione__seguito {
+    columns: 2;
+    column-gap: 4rem;
+    padding-left: 1.5rem;
+  }
+
+  .introduzione__seguito p {
+    break-inside: avoid;
+  }
+}
+
+/* Titolo a sinistra, testo a destra */
+@media (min-width: 56rem) {
+  .due-colonne--titolo {
+    grid-template-columns: 0.6fr 1.4fr;
+  }
+}
+
+.testo-grande {
+  font-size: clamp(1.1rem, 2.2vw, 1.25rem);
+  max-width: 42rem;
+}
+
+/* Collegamento con freccia */
+.freccia {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding-block: 0.4rem;
+  border-bottom: 1px solid currentColor;
+}
+
+.freccia::after {
+  content: '\2192';
+  transition: transform 0.2s ease;
+}
+
+.freccia:hover::after {
+  transform: translateX(0.3rem);
+}
+
+.freccia--indietro::after {
+  content: none;
+}
+
+.freccia--indietro::before {
+  content: '\2190';
+  transition: transform 0.2s ease;
+}
+
+.freccia--indietro:hover::before {
+  transform: translateX(-0.3rem);
+}
+
+/* Schede: freccia, ombra leggera e numerazione */
+.scheda {
+  padding-bottom: 3.25rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.scheda::after {
+  content: '\2192';
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.1rem;
+  color: var(--blu);
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.scheda:hover,
+.scheda:focus-within {
+  box-shadow: 0 1.25rem 2.5rem -1.5rem rgba(23, 71, 214, 0.45);
+  transform: translateY(-2px);
+}
+
+.scheda:hover::after,
+.scheda:focus-within::after {
+  transform: translateX(0.3rem);
+}
+
+.scheda::before {
+  transition: width 0.3s ease;
+}
+
+.scheda:hover::before,
+.scheda:focus-within::before {
+  width: 100%;
+}
+
+.griglia--numerata {
+  counter-reset: scheda;
+}
+
+.griglia--numerata .scheda {
+  counter-increment: scheda;
+  padding-top: 3.75rem;
+}
+
+.griglia--numerata .scheda h3::before {
+  content: '0' counter(scheda);
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--blu);
+}
+
+.griglia--numerata .scheda h3 {
+  font-size: 1.3rem;
+}
+
+/* Pagine interne: fascia chiara sfumata dietro il titolo */
+main > .sezione:first-child:not(.scuro) {
+  background: linear-gradient(180deg, var(--fondo-tenue), var(--bianco) 20rem);
+}
+
+/* Indice dei trattamenti: collegamenti rapidi alle categorie */
+.salti ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0;
+  margin: 2rem 0 0;
+}
+
+.salti a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.75rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  background: var(--bianco);
+  color: var(--blu-notte);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.salti a:hover {
+  border-color: var(--blu);
+  color: var(--blu);
+}
+
+.salti__numero {
+  font-size: 0.8rem;
+  color: var(--grigio);
+}
+
+.categoria h2 {
+  scroll-margin-top: 6rem;
+}
+
+/* Scheda del trattamento: testo ampio e riquadro di sintesi a lato */
+.scheda-corpo {
+  display: grid;
+  gap: 2.5rem;
+  margin-top: 1rem;
+}
+
+.prosa--grande > p:first-child {
+  font-size: clamp(1.15rem, 2.4vw, 1.3rem);
+  line-height: 1.55;
+  color: var(--blu-notte);
+}
+
+.prosa--grande p {
+  color: #2b3350;
+}
+
+.prosa--grande .nota {
+  color: var(--grigio);
+}
+
+.riquadro {
+  position: relative;
+  padding: 1.75rem 1.5rem;
+  border: 1px solid var(--linea);
+  border-radius: 2px;
+  background: var(--bianco);
+  align-self: start;
+}
+
+.riquadro::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--blu), rgba(23, 71, 214, 0));
+}
+
+.riquadro h2 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blu);
+  margin-bottom: 1.25rem;
+}
+
+.riquadro .dati dd {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+@media (min-width: 60rem) {
+  .scheda-corpo--con-sintesi {
+    grid-template-columns: minmax(0, 1fr) 18rem;
+    gap: 4rem;
+  }
+
+  .riquadro {
+    position: sticky;
+    top: 6.5rem;
+  }
+}
+
+/* Fascia "Prenotare una visita": stesso carattere della apertura */
+.sezione.scuro {
+  background:
+    radial-gradient(50rem 24rem at 100% 0%, rgba(23, 71, 214, 0.3), transparent 60%),
+    var(--blu-notte);
+}
+
+/* Intestazione leggermente traslucida */
+.intestazione {
+  backdrop-filter: saturate(1.4) blur(10px);
+  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.pulsante:active {
+  transform: translateY(1px);
+}

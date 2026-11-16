@@ -1,4 +1,5 @@
 ---
+import monogramma from '../../brand/gsn-monogramma-trasparente.svg?url';
 import Base from '../layouts/Base.astro';
 import Dato from '../components/Dato.astro';
 import InvitoVisita from '../components/InvitoVisita.astro';
@@ -67,24 +68,30 @@ const testi = {
   descrizione={testi.descrizione}
   altraLingua={rotte.home[lingua === 'it' ? 'en' : 'it']}
 >
-  <section class="apertura">
-    <div class="contenitore">
-      <p class="occhiello">{testi.occhiello}</p>
-      <h1>{studio.nome}</h1>
-      <hr class="linea" />
-      <p class="sommario"><Dato valore={testi.presentazione} /></p>
-      <div class="azioni">
-        <a class="pulsante" href={rotte.contatti[lingua]}>{t.prenota}</a>
-        <a class="pulsante pulsante--contorno" href={rotte.trattamenti[lingua]}>{testi.vediTrattamenti}</a>
+  <section class="apertura apertura--scura scuro">
+    <div class="contenitore apertura__griglia">
+      <div class="apertura__testo">
+        <p class="occhiello">{testi.occhiello}</p>
+        <h1>{studio.nome}</h1>
+        <hr class="linea" />
+        <p class="sommario"><Dato valore={testi.presentazione} /></p>
+        <div class="azioni">
+          <a class="pulsante" href={rotte.contatti[lingua]}>{t.prenota}</a>
+          <a class="pulsante pulsante--contorno" href={rotte.trattamenti[lingua]}>{testi.vediTrattamenti}</a>
+        </div>
       </div>
+      <img class="apertura__monogramma" src={monogramma} alt="" width="1080" height="1080" aria-hidden="true" />
     </div>
   </section>
 
-  <section class="sezione" aria-labelledby="intro-titolo" style="padding-top: 0">
+  <section class="sezione" aria-labelledby="intro-titolo">
     <div class="contenitore">
       <h2 id="intro-titolo" class="nascosto-visivamente">{testi.introTitolo}</h2>
-      <div class="testo introduzione">
-        {testi.intro.map((paragrafo) => <p>{paragrafo}</p>)}
+      <div class="introduzione">
+        <p class="introduzione__apertura">{testi.intro[0]}</p>
+        <div class="introduzione__seguito">
+          {testi.intro.slice(1).map((paragrafo) => <p>{paragrafo}</p>)}
+        </div>
       </div>
     </div>
   </section>
@@ -93,7 +100,7 @@ const testi = {
     <div class="contenitore">
       <h2 id="aree-titolo">{testi.areeTitolo}</h2>
       <hr class="linea" />
-      <ul class="griglia griglia--3">
+      <ul class="griglia griglia--3 griglia--numerata">
         {
           categorie.map((categoria) => (
             <li>
@@ -111,11 +118,15 @@ const testi = {
   </section>
 
   <section class="sezione" aria-labelledby="chi-sono-titolo">
-    <div class="contenitore">
-      <h2 id="chi-sono-titolo">{testi.chiSonoTitolo}</h2>
-      <hr class="linea" />
-      <p class="testo">{testi.chiSonoTesto}</p>
-      <p><a href={rotte.chiSono[lingua]}>{testi.chiSonoLink}</a></p>
+    <div class="contenitore due-colonne due-colonne--titolo">
+      <div>
+        <h2 id="chi-sono-titolo">{testi.chiSonoTitolo}</h2>
+        <hr class="linea" />
+      </div>
+      <div>
+        <p class="testo-grande">{testi.chiSonoTesto}</p>
+        <p><a class="freccia" href={rotte.chiSono[lingua]}>{testi.chiSonoLink}</a></p>
+      </div>
     </div>
   </section>
 

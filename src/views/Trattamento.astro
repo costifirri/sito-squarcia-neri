@@ -23,6 +23,7 @@ const testi = {
     durata: 'Durata del trattamento',
     anestesia: 'Anestesia',
     ritorno: 'Ritorno al quotidiano',
+    tutti: 'Tutti i trattamenti',
     nota: 'Questa scheda ha carattere informativo generale e non sostituisce la visita medica. Indicazioni, alternative, rischi e decorso variano da persona a persona e vengono discussi durante la visita.',
   },
   en: {
@@ -31,6 +32,7 @@ const testi = {
     durata: 'Treatment time',
     anestesia: 'Anaesthesia',
     ritorno: 'Return to daily activities',
+    tutti: 'All treatments',
     nota: 'This sheet provides general information and does not replace a medical consultation. Indications, alternatives, risks and recovery vary from person to person and are discussed during the consultation.',
   },
 }[lingua];
@@ -57,13 +59,17 @@ const sintesi = [
       </nav>
       <h1><Dato valore={scheda.data.titolo} /></h1>
       <hr class="linea" />
-      <div class="prosa">
-        <Content />
+      <div class:list={['scheda-corpo', { 'scheda-corpo--con-sintesi': sintesi.length > 0 }]}>
+        <div class="prosa prosa--grande">
+          <Content />
+          <p class="secondario nota">{testi.nota}</p>
+          <p><a class="freccia freccia--indietro" href={rotte.trattamenti[lingua]}>{testi.tutti}</a></p>
+        </div>
         {
           sintesi.length > 0 && (
-            <section class="sintesi" aria-labelledby="sintesi-titolo">
+            <aside class="riquadro" aria-labelledby="sintesi-titolo">
               <h2 id="sintesi-titolo">{testi.sintesi}</h2>
-              <dl class="dati dati--riga">
+              <dl class="dati">
                 {sintesi.map((voce) => (
                   <div>
                     <dt>{voce.etichetta}</dt>
@@ -71,10 +77,9 @@ const sintesi = [
                   </div>
                 ))}
               </dl>
-            </section>
+            </aside>
           )
         }
-        <p class="secondario nota">{testi.nota}</p>
       </div>
     </div>
   </article>
