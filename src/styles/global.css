@@ -1068,3 +1068,54 @@ main > .sezione:first-child:not(.scuro) {
 .pulsante:active {
   transform: translateY(1px);
 }
+
+/* Su telefono la apertura occupa tutto lo schermo, sotto la intestazione */
+@media (max-width: 59.99rem) {
+  .apertura--scura {
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 4.5rem - 1px);
+    min-height: calc(100svh - 4.5rem - 1px);
+    padding-block: 2rem;
+  }
+
+  .apertura__griglia {
+    gap: 0;
+  }
+
+  .apertura__monogramma {
+    display: block;
+    order: -1;
+    width: min(92%, 24rem);
+    margin: -26% auto -22%;
+  }
+}
+
+/* Telefoni con schermo basso: tutto più compatto, così i pulsanti restano visibili */
+@media (max-width: 59.99rem) and (max-height: 44rem) {
+  .apertura--scura {
+    padding-block: 1rem;
+  }
+
+  .apertura__monogramma {
+    width: min(60%, 15rem);
+    margin: -17% auto -14%;
+  }
+
+  .apertura--scura h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.4em;
+  }
+
+  .apertura--scura .linea {
+    margin-bottom: 1.25rem;
+  }
+
+  .apertura--scura .sommario {
+    font-size: 1rem;
+  }
+
+  .apertura--scura .azioni {
+    margin-top: 1.25rem;
+  }
+}
