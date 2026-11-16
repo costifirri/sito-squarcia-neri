@@ -15,7 +15,3 @@ Botulinum toxin is a medicine used in many areas of medicine. In aesthetic medic
 The treatment involves a precise and personalised approach: doses and injection points are calibrated according to the morphology of the face, muscle strength and the patient’s objectives. The depressor muscles are treated selectively and only partially, favouring the action of the elevator muscles without cancelling facial expression. The aim is a result that preserves the expressiveness of the face. The effect is temporary and the treatment can be repeated, subject to medical assessment, after an interval of at least 6 months.
 
 The effects of the treatment diminish gradually and last on average 3 to 6 months, depending on individual metabolism and lifestyle, in particular sun exposure, sporting activity and smoking.
-
-## Risks and contraindications
-
-<mark class="segnaposto">[TESTO DA FORNIRE: rischi, possibili complicanze e controindicazioni di questo trattamento, in inglese]</mark>

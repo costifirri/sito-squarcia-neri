@@ -12,7 +12,3 @@ La mastoplastica additiva Preservé è una tecnica mininvasiva di aumento del se
 La tecnica è indicata per pazienti che desiderano un aumento di volume contenuto e naturale. In presenza di ptosi mammaria, nello stesso intervento può essere associata una mastopessi, per sollevare e rimodellare il seno. L’idoneità viene valutata durante la visita con lo specialista, che personalizza l’intervento in base all’anatomia e agli obiettivi della paziente.
 
 L’intervento si esegue in sedazione, senza anestesia generale. Il recupero post-operatorio è rapido: in genere già dal giorno successivo è possibile riprendere le normali attività quotidiane, evitando sforzi con le braccia nelle prime settimane. L’obiettivo è un seno naturale e armonico con la figura.
-
-## Rischi e controindicazioni
-
-<mark class="segnaposto">[TESTO DA FORNIRE: rischi, possibili complicanze e controindicazioni di questo trattamento]</mark>

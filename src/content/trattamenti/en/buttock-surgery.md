@@ -14,7 +14,3 @@ Lipofilling is indicated when the loss of volume is limited: the patient’s own
 The procedure is personalised after a thorough consultation, according to the anatomy, the quality of the tissues and the patient’s objectives, and can be combined, where indicated, with other procedures such as liposuction in the same session. Depending on the technique, it can be performed as a day-hospital procedure.
 
 After surgery, a compression garment is worn for about three weeks. Normal daily activities can generally be resumed after 7-10 days, while it is advisable to refrain from sport for at least a month.
-
-## Risks and contraindications
-
-<mark class="segnaposto">[TESTO DA FORNIRE: rischi, possibili complicanze e controindicazioni di questo trattamento, in inglese]</mark>

@@ -14,7 +14,3 @@ When the gland is well represented, the breast is lifted and reshaped using only
 Each procedure is planned individually, on the basis of the anatomy, the quality of the tissues and the patient’s wishes, with the aim of giving the breast a harmonious and natural shape.
 
 After surgery, a non-wired support bra is worn for about a month. One week of rest and limited use of the arms for about ten days are recommended, and the stitches are removed between the tenth and fourteenth day.
-
-## Risks and contraindications
-
-<mark class="segnaposto">[TESTO DA FORNIRE: rischi, possibili complicanze e controindicazioni di questo trattamento, in inglese]</mark>

@@ -12,7 +12,3 @@ Con il passare degli anni, la riduzione dell’elasticità cutanea, le variazion
 Si tratta di un intervento sartoriale, cucito su misura per ogni paziente: dopo un’accurata visita, l’estensione della resezione viene pianificata in base al grado di lassità cutanea e alla distribuzione del tessuto adiposo. Nel braccio, la cicatrice è lineare e decorre lungo la faccia interna, dall’ascella verso il gomito. Nella coscia, la resezione può limitarsi alla piega inguinale oppure estendersi verticalmente lungo la faccia mediale. Le incisioni vengono posizionate in aree poco esposte; inizialmente arrossate, le cicatrici tendono a schiarirsi e ad attenuarsi nel tempo.
 
 Al termine dell’intervento viene applicato un bendaggio compressivo. Le normali attività quotidiane possono essere riprese in genere dopo 7-10 giorni, mentre per l’attività sportiva è necessario un periodo più lungo. Nelle prime settimane è importante evitare trazioni eccessive sulle aree operate, per favorire una buona qualità della cicatrice. Gonfiore, piccoli ematomi e sieromi sono frequenti e, nella maggior parte dei casi, si risolvono con un’adeguata gestione.
-
-## Rischi e controindicazioni
-
-<mark class="segnaposto">[TESTO DA FORNIRE: rischi, possibili complicanze e controindicazioni di questo trattamento]</mark>

@@ -15,7 +15,3 @@ La tossina botulinica è un farmaco impiegato in numerosi ambiti della medicina.
 Il trattamento prevede un approccio preciso e personalizzato: dosi e punti di iniezione vengono calibrati in base alla morfologia del viso, alla forza muscolare e agli obiettivi del paziente. I muscoli depressori vengono trattati in modo selettivo e solo parziale, favorendo l’azione dei muscoli elevatori senza annullare la mimica. L’obiettivo è un risultato che preservi l’espressività del volto. L’effetto è temporaneo e il trattamento può essere ripetuto, su valutazione medica, a distanza di almeno 6 mesi.
 
 Gli effetti del trattamento si riducono in modo graduale e durano in media dai 3 ai 6 mesi, in funzione del metabolismo individuale e dello stile di vita, in particolare dell’esposizione solare, dell’attività sportiva e del fumo.
-
-## Rischi e controindicazioni
-
-<mark class="segnaposto">[TESTO DA FORNIRE: rischi, possibili complicanze e controindicazioni di questo trattamento]</mark>

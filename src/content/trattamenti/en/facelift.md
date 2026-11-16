@@ -12,7 +12,3 @@ A facelift is the surgical procedure that counteracts laxity of the tissues of t
 There is no ideal age: sagging of the tissues varies from person to person and depends above all on genetic predisposition and lifestyle, so the procedure may be indicated before the age of 45 as well as later in life. Timing and methods are defined during the consultation with the specialist in Plastic Surgery, who personalises the treatment according to the patient’s characteristics. The aim is always an elegant and natural result that gives a rested appearance, with no signs of tension or artificiality.
 
 The procedure is delicate because of the anatomical structures involved and is generally performed under general anaesthesia. At the end a compression bandage is applied and kept in place for about a day. About ten days of rest at home are recommended, during which swelling and bruising progressively diminish. The stitches are removed in stages and the scars, positioned in hidden sites, are generally barely visible.
-
-## Risks and contraindications
-
-<mark class="segnaposto">[TESTO DA FORNIRE: rischi, possibili complicanze e controindicazioni di questo trattamento, in inglese]</mark>

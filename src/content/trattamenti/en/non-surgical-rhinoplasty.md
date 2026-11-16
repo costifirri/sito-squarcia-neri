@@ -15,7 +15,3 @@ Nose filler, or non-surgical rhinoplasty, is a minimally invasive aesthetic medi
 The treatment is personalised on the basis of a careful analysis of the profile and proportions of the face, taking the patient’s preferences into account. It makes it possible to camouflage a small nasal hump, fill depressions of the dorsum and improve the projection and rotation of the tip. The aim is a more harmonious profile, in balance with the other features of the face.
 
 The product is gradually resorbed: the effects last on average 12 months, depending on the type of filler, individual metabolism and lifestyle, in particular sun exposure, sporting activity and smoking.
-
-## Risks and contraindications
-
-<mark class="segnaposto">[TESTO DA FORNIRE: rischi, possibili complicanze e controindicazioni di questo trattamento, in inglese]</mark>

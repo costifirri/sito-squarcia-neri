@@ -15,7 +15,3 @@ Over the years, the volumes of the face change and the tissues lose part of thei
 The preliminary consultation is the central moment of the pathway: it makes it possible to analyse the anatomy and proportions of the face, define realistic objectives with the patient, identify the areas to be treated and select the most suitable filler for each of them. The treatment is directed towards a natural and harmonious result, never artificial.
 
 The products used are gradually resorbed: the effects last on average 6 to 18 months, depending on the type of filler, individual metabolism and lifestyle, in particular sun exposure, sporting activity and smoking.
-
-## Risks and contraindications
-
-<mark class="segnaposto">[TESTO DA FORNIRE: rischi, possibili complicanze e controindicazioni di questo trattamento, in inglese]</mark>

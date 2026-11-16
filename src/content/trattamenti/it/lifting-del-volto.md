@@ -12,7 +12,3 @@ Il lifting del volto è l’intervento chirurgico che contrasta il rilassamento 
 Non esiste un’età ideale: il cedimento dei tessuti varia da persona a persona e dipende soprattutto da predisposizione genetica e stile di vita, per cui l’intervento può essere indicato già prima dei 45 anni come in età più avanzata. Tempi e modalità vengono definiti durante la visita con lo specialista in Chirurgia Plastica, che personalizza il trattamento in base alle caratteristiche del paziente. L’obiettivo è sempre un risultato elegante e naturale, che restituisca un aspetto riposato, senza segni di tensione o artificiosità.
 
 L’intervento è delicato per le strutture anatomiche coinvolte e si esegue in genere in anestesia generale. Al termine si applica un bendaggio compressivo, mantenuto per circa un giorno. È consigliato un riposo domiciliare di circa dieci giorni, durante i quali gonfiore ed ecchimosi si riducono progressivamente. I punti vengono rimossi in più tempi e le cicatrici, posizionate in sedi nascoste, risultano in genere poco visibili.
-
-## Rischi e controindicazioni
-
-<mark class="segnaposto">[TESTO DA FORNIRE: rischi, possibili complicanze e controindicazioni di questo trattamento]</mark>

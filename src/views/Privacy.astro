@@ -1,5 +1,5 @@
 ---
-// BOZZA: da far verificare a un consulente privacy prima della pubblicazione.
+// Testo da far verificare a un consulente privacy.
 import Base from '../layouts/Base.astro';
 import Dato from '../components/Dato.astro';
 import { studio } from '../lib/studio';
@@ -15,7 +15,6 @@ const testi = {
   it: {
     titolo: 'Privacy policy',
     descrizione: `Informativa sul trattamento dei dati personali dei visitatori del sito del ${studio.nome}.`,
-    bozza: '[BOZZA DA VERIFICARE: testo da far controllare a un consulente privacy prima della pubblicazione]',
     intro:
       'Questa informativa, resa ai sensi degli articoli 13 e 14 del Regolamento (UE) 2016/679 (GDPR), descrive come vengono trattati i dati personali di chi visita questo sito. Non riguarda il trattamento dei dati dei pazienti nell’ambito dell’attività medica, per il quale viene fornita un’informativa specifica al momento della visita.',
     sezioni: [
@@ -25,14 +24,15 @@ const testi = {
         paragrafi: [
           'Il sito non richiede registrazione, non contiene moduli e non utilizza cookie di profilazione né strumenti di tracciamento o di statistica.',
           `Come per ogni sito web, i server del fornitore di hosting (${studio.hosting}) ricevono automaticamente alcuni dati tecnici necessari alla connessione, tra cui l’indirizzo IP, la data e l’ora della richiesta e il tipo di browser. Questi dati sono trattati per il solo funzionamento e la sicurezza del sito, sulla base del legittimo interesse del titolare (art. 6, par. 1, lett. f GDPR), e conservati per il tempo previsto dal fornitore.`,
-          '[TESTO DA FORNIRE: sede del fornitore di hosting, eventuale trasferimento dei dati fuori dall’Unione europea e relative garanzie, tempi di conservazione dei log]',
+          'Il sito è ospitato su Cloudflare Pages, un servizio di Cloudflare, Inc. (101 Townsend Street, San Francisco, California, Stati Uniti), che gestisce anche il dominio. Cloudflare distribuisce le pagine attraverso una rete di server presenti in molti Paesi, anche nell’Unione europea; i dati tecnici di connessione possono quindi essere trattati anche negli Stati Uniti. Il trasferimento avviene sulla base dell’adesione di Cloudflare al Data Privacy Framework UE-USA e delle clausole contrattuali standard approvate dalla Commissione europea. Per i tempi di conservazione e gli altri dettagli si rimanda all’informativa di Cloudflare (www.cloudflare.com/privacypolicy).',
         ],
       },
       {
         titolo: 'Dati forniti contattando il medico',
         paragrafi: [
           'Chi contatta il medico per telefono, email o WhatsApp fornisce volontariamente i propri dati (ad esempio nome, recapiti e contenuto del messaggio). Questi dati sono utilizzati solo per rispondere alla richiesta e per fissare l’appuntamento (art. 6, par. 1, lett. b GDPR) e sono conservati per il tempo necessario a tali finalità.',
-          'Si raccomanda di non inviare via email o WhatsApp referti, fotografie o informazioni dettagliate sul proprio stato di salute. WhatsApp è un servizio di WhatsApp Ireland Limited, che tratta i dati secondo la propria informativa.',
+          'Si raccomanda di non inviare via email o WhatsApp referti, fotografie o informazioni dettagliate sul proprio stato di salute.',
+          'La casella email è gestita tramite il servizio Gmail di Google Ireland Limited; WhatsApp è un servizio di WhatsApp Ireland Limited. Entrambi trattano i dati secondo le rispettive informative.',
         ],
       },
       {
@@ -48,13 +48,12 @@ const testi = {
           'È inoltre possibile proporre reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it).',
         ],
       },
-      { titolo: 'Aggiornamento', paragrafi: ['Ultimo aggiornamento: [DATA AGGIORNAMENTO PRIVACY].'] },
+      { titolo: 'Aggiornamento', paragrafi: ['Ultimo aggiornamento: 16 novembre 2026.'] },
     ],
   },
   en: {
     titolo: 'Privacy policy',
     descrizione: `Information on the processing of personal data of visitors to the website of ${studio.nome}.`,
-    bozza: '[BOZZA DA VERIFICARE: testo da far controllare a un consulente privacy prima della pubblicazione]',
     intro:
       'This notice, provided under Articles 13 and 14 of Regulation (EU) 2016/679 (GDPR), describes how the personal data of visitors to this website are processed. It does not cover the processing of patient data in the course of medical practice, for which a specific notice is provided at the time of the consultation.',
     sezioni: [
@@ -64,14 +63,15 @@ const testi = {
         paragrafi: [
           'This website requires no registration, contains no forms and uses no profiling cookies, tracking or analytics tools.',
           `As with any website, the servers of the hosting provider (${studio.hosting}) automatically receive some technical data needed for the connection, including the IP address, the date and time of the request and the browser type. These data are processed solely for the operation and security of the website, on the basis of the controller’s legitimate interest (Art. 6(1)(f) GDPR), and are kept for the period set by the provider.`,
-          '[TESTO DA FORNIRE: sede del fornitore di hosting, eventuale trasferimento dei dati fuori dall’Unione europea e relative garanzie, tempi di conservazione dei log, in inglese]',
+          'The website is hosted on Cloudflare Pages, a service of Cloudflare, Inc. (101 Townsend Street, San Francisco, California, United States), which also manages the domain. Cloudflare delivers the pages through a network of servers located in many countries, including in the European Union; technical connection data may therefore also be processed in the United States. The transfer is based on Cloudflare’s participation in the EU-U.S. Data Privacy Framework and on the standard contractual clauses approved by the European Commission. For retention periods and other details, please refer to Cloudflare’s privacy policy (www.cloudflare.com/privacypolicy).',
         ],
       },
       {
         titolo: 'Data provided when contacting the doctor',
         paragrafi: [
           'Anyone contacting the doctor by phone, email or WhatsApp voluntarily provides their data (for example name, contact details and the content of the message). These data are used only to reply to the request and to arrange the appointment (Art. 6(1)(b) GDPR) and are kept for as long as necessary for those purposes.',
-          'Please do not send medical reports, photographs or detailed information about your health by email or WhatsApp. WhatsApp is a service of WhatsApp Ireland Limited, which processes data according to its own privacy policy.',
+          'Please do not send medical reports, photographs or detailed information about your health by email or WhatsApp.',
+          'The email account is run on the Gmail service of Google Ireland Limited; WhatsApp is a service of WhatsApp Ireland Limited. Both process data according to their own privacy policies.',
         ],
       },
       {
@@ -87,7 +87,7 @@ const testi = {
           'A complaint may also be lodged with the Italian Data Protection Authority (Garante per la protezione dei dati personali, www.garanteprivacy.it).',
         ],
       },
-      { titolo: 'Updates', paragrafi: ['Last updated: [DATA AGGIORNAMENTO PRIVACY].'] },
+      { titolo: 'Updates', paragrafi: ['Last updated: 16 November 2026.'] },
     ],
   },
 }[lingua];
@@ -104,7 +104,6 @@ const testi = {
       <h1>{testi.titolo}</h1>
       <hr class="linea" />
       <div class="prosa">
-        <p><Dato valore={testi.bozza} /></p>
         <p>{testi.intro}</p>
         {
           testi.sezioni.map((sezione) => (

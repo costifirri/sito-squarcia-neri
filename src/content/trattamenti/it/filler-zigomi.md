@@ -15,7 +15,3 @@ Con il passare del tempo, la perdita di volume e di sostegno dei tessuti del vol
 Il risultato è personalizzato e definito insieme al paziente sulla base di un’attenta analisi dell’anatomia e delle proporzioni del volto. L’obiettivo è sempre un risultato naturale, mai artefatto, in armonia con i tratti individuali.
 
 Il prodotto viene gradualmente riassorbito: gli effetti durano in media dai 6 ai 12 mesi, in funzione del tipo di filler, del metabolismo individuale e dello stile di vita, in particolare esposizione solare, attività sportiva e fumo.
-
-## Rischi e controindicazioni
-
-<mark class="segnaposto">[TESTO DA FORNIRE: rischi, possibili complicanze e controindicazioni di questo trattamento]</mark>

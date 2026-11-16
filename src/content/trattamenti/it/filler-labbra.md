@@ -15,7 +15,3 @@ Il filler labbra è una procedura di medicina estetica che prevede l’iniezione
 Il trattamento è personalizzato sulla base di un’attenta analisi del profilo labiale, della conformazione del volto e delle preferenze del paziente. Consente di ridefinire il contorno, aumentare il volume in modo calibrato e, se indicato, attenuare le rughe periorali verticali, il cosiddetto “codice a barre”, e quelle delle commissure labiali. L’obiettivo è un risultato che valorizzi i tratti individuali nel rispetto dell’equilibrio del volto.
 
 Il prodotto viene gradualmente riassorbito: gli effetti durano in media dai 6 ai 12 mesi, in funzione del tipo di filler, del metabolismo individuale e dello stile di vita, in particolare esposizione solare, attività sportiva e fumo.
-
-## Rischi e controindicazioni
-
-<mark class="segnaposto">[TESTO DA FORNIRE: rischi, possibili complicanze e controindicazioni di questo trattamento]</mark>

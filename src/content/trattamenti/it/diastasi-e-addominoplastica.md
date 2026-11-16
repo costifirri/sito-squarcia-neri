@@ -12,7 +12,3 @@ L’addominoplastica è l’intervento chirurgico che ripristina la forma e la f
 Attraverso un’incisione orizzontale sovrapubica, si esegue la plicatura della fascia anteriore dei muscoli retti, che ne ripristina il corretto allineamento lungo la linea mediana e la funzione di contenimento della parete. Contestualmente vengono asportati la cute e il tessuto adiposo in eccesso, con riposizionamento dell’ombelico; le eventuali ernie possono essere trattate nello stesso intervento. Ogni intervento è pianificato su misura, in base all’anatomia, alla qualità dei tessuti e alle aspettative della paziente, con l’obiettivo di ripristinare il profilo e la funzione della parete addominale.
 
 Al termine della procedura viene applicata una guaina contenitiva, da indossare per almeno un mese. Il recupero domiciliare richiede in media 2-3 settimane, durante le quali vengono rimossi i punti di sutura. La cicatrice orizzontale, di lunghezza variabile in base all’entità dell’eccesso cutaneo, è generalmente posizionata in modo da poter essere coperta dalla biancheria intima o dal costume, mentre quella periombelicale risulta in genere poco visibile.
-
-## Rischi e controindicazioni
-
-<mark class="segnaposto">[TESTO DA FORNIRE: rischi, possibili complicanze e controindicazioni di questo trattamento]</mark>

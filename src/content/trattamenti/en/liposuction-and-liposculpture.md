@@ -14,7 +14,3 @@ Liposculpture is a variant that also involves more superficial suction, to refin
 Liposuction is not a weight-loss treatment and does not replace diet: it is indicated to harmonise the body’s shape in the presence of resistant localised fat deposits. The procedure is personalised after a thorough consultation, according to the distribution of fatty tissue, the quality of the skin and the patient’s objectives. Depending on the extent of the areas treated, it can be performed under local anaesthesia with sedation or under general anaesthesia.
 
 Normal daily activities can generally be resumed after 24-72 hours, while about two weeks are needed for sport, during which a shaping garment is worn. Swelling, bruising and mild pain are common and resolve spontaneously. Targeted physiotherapy treatments can help to optimise the result in the post-operative period.
-
-## Risks and contraindications
-
-<mark class="segnaposto">[TESTO DA FORNIRE: rischi, possibili complicanze e controindicazioni di questo trattamento, in inglese]</mark>

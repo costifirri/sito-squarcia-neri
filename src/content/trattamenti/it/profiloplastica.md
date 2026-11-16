@@ -15,7 +15,3 @@ Con il passare degli anni, i volumi del volto si modificano e i tessuti perdono 
 La visita preliminare costituisce il momento centrale del percorso: consente di analizzare l’anatomia e le proporzioni del volto, definire con il paziente obiettivi realistici, individuare le aree da trattare e selezionare il filler più adatto a ciascuna di esse. Il trattamento è orientato alla ricerca di un risultato naturale e armonico, mai artefatto.
 
 I prodotti utilizzati vengono gradualmente riassorbiti: gli effetti durano in media dai 6 ai 18 mesi, in funzione del tipo di filler, del metabolismo individuale e dello stile di vita, in particolare esposizione solare, attività sportiva e fumo.
-
-## Rischi e controindicazioni
-
-<mark class="segnaposto">[TESTO DA FORNIRE: rischi, possibili complicanze e controindicazioni di questo trattamento]</mark>

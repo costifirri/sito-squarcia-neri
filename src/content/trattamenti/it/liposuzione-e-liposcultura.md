@@ -14,7 +14,3 @@ La liposcultura è una variante che prevede anche un’aspirazione più superfic
 La liposuzione non è un trattamento dimagrante e non sostituisce la dieta: è indicata per armonizzare le forme in presenza di adiposità localizzate resistenti. L’intervento viene personalizzato dopo un’accurata visita, in base alla distribuzione del tessuto adiposo, alla qualità della pelle e agli obiettivi del paziente. In base all’estensione delle aree trattate, può essere eseguito in anestesia locale con sedazione o in anestesia generale.
 
 Le normali attività quotidiane possono essere riprese in genere dopo 24-72 ore, mentre per l’attività sportiva sono necessarie circa due settimane, durante le quali si indossa una guaina modellante. Gonfiore, ecchimosi e lieve dolore sono comuni e regrediscono spontaneamente. Trattamenti fisioterapici mirati possono contribuire a ottimizzare il risultato nel post-operatorio.
-
-## Rischi e controindicazioni
-
-<mark class="segnaposto">[TESTO DA FORNIRE: rischi, possibili complicanze e controindicazioni di questo trattamento]</mark>

@@ -14,7 +14,3 @@ Quando la ghiandola è ben rappresentata, il seno viene sollevato e rimodellato 
 Ogni intervento è pianificato su misura, sulla base dell’anatomia, della qualità dei tessuti e dei desideri della paziente, con l’obiettivo di restituire al seno una forma armonica e naturale.
 
 Nel post-operatorio si indossa un reggiseno contenitivo senza ferretto per circa un mese. Sono consigliati una settimana di riposo e un uso limitato delle braccia per circa dieci giorni, e i punti vengono rimossi tra il decimo e il quattordicesimo giorno.
-
-## Rischi e controindicazioni
-
-<mark class="segnaposto">[TESTO DA FORNIRE: rischi, possibili complicanze e controindicazioni di questo trattamento]</mark>

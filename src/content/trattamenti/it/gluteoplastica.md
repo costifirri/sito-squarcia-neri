@@ -14,7 +14,3 @@ Il lipofilling è indicato quando la perdita di volume è contenuta: il tessuto 
 L’intervento è personalizzato dopo un’accurata visita, in base all’anatomia, alla qualità dei tessuti e agli obiettivi della paziente, e può essere associato, se indicato, ad altre procedure come la liposuzione nella stessa seduta. A seconda della tecnica, può essere eseguito in regime di day hospital.
 
 Nel post-operatorio si indossa una guaina contenitiva per circa tre settimane. Le normali attività quotidiane possono essere riprese in genere dopo 7-10 giorni, mentre per l’attività sportiva è consigliata un’astensione di almeno un mese.
-
-## Rischi e controindicazioni
-
-<mark class="segnaposto">[TESTO DA FORNIRE: rischi, possibili complicanze e controindicazioni di questo trattamento]</mark>
