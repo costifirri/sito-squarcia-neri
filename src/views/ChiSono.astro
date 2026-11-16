@@ -22,9 +22,22 @@ const testi = {
     ],
     sezioni: [
       {
-        titolo: 'Formazione e specializzazione',
-        testo:
-          '[TESTO DA FORNIRE: laurea in Medicina e Chirurgia e specializzazione in Chirurgia plastica, ricostruttiva ed estetica, con università e anno; eventuali master, esperienze nei centri europei, società scientifiche]',
+        titolo: 'Formazione ed esperienze',
+        elenco: [
+          'The Institute Marco Gasparotti',
+          'Divisione di Chirurgia generale, Centro di eccellenza SICOB per la chirurgia bariatrica, ICOT, Latina',
+          'Divisione di Chirurgia plastica, Policlinico Universitario Federico II, Napoli',
+          'Divisione di Chirurgia plastica pediatrica, Santobono-Pausilipon',
+          'Divisione di Chirurgia oncoplastica, Istituto Nazionale Tumori IRCCS Fondazione G. Pascale',
+          'Divisione di Chirurgia plastica, Ospedale Universitario La Paz, Madrid, Spagna',
+          'Divisione di Chirurgia plastica, Ospedale Clinico San Carlos, Madrid, Spagna',
+          'Aesthetic Fellowship Program, Madrid, Spagna',
+          'Divisione di Chirurgia plastica, Ospedale Cardarelli, Napoli',
+        ],
+      },
+      {
+        titolo: 'Società scientifiche',
+        testo: 'Membro della Società Italiana di Chirurgia Plastica, Ricostruttiva ed Estetica (SICPRE).',
       },
       { titolo: "Iscrizione all'Ordine", testo: `${t.ordine(studio.ordine.provincia, studio.ordine.numero)}.` },
     ],
@@ -39,9 +52,22 @@ const testi = {
     ],
     sezioni: [
       {
-        titolo: 'Education and specialist training',
-        testo:
-          '[TESTO DA FORNIRE: laurea in Medicina e Chirurgia e specializzazione in Chirurgia plastica, ricostruttiva ed estetica, con università e anno; eventuali master, esperienze nei centri europei, società scientifiche, in inglese]',
+        titolo: 'Training and experience',
+        elenco: [
+          'The Institute Marco Gasparotti',
+          'General Surgery Division, SICOB Centre of Excellence for bariatric surgery, ICOT, Latina, Italy',
+          'Plastic Surgery Division, Federico II University Hospital, Naples, Italy',
+          'Paediatric Plastic Surgery Division, Santobono-Pausilipon',
+          'Oncoplastic Surgery Division, Istituto Nazionale Tumori IRCCS Fondazione G. Pascale',
+          'Plastic Surgery Division, La Paz University Hospital, Madrid, Spain',
+          'Plastic Surgery Division, Hospital Clínico San Carlos, Madrid, Spain',
+          'Aesthetic Fellowship Program, Madrid, Spain',
+          'Plastic Surgery Division, Cardarelli Hospital, Naples, Italy',
+        ],
+      },
+      {
+        titolo: 'Scientific societies',
+        testo: 'Member of the Italian Society of Plastic, Reconstructive and Aesthetic Surgery (SICPRE).',
       },
       { titolo: 'Medical Council registration', testo: `${t.ordine(studio.ordine.provincia, studio.ordine.numero)}.` },
     ],
@@ -67,9 +93,18 @@ const testi = {
           testi.sezioni.map((sezione) => (
             <>
               <h2>{sezione.titolo}</h2>
-              <p>
-                <Dato valore={sezione.testo} />
-              </p>
+              {'elenco' in sezione && (
+                <ul>
+                  {sezione.elenco.map((voce) => (
+                    <li>{voce}</li>
+                  ))}
+                </ul>
+              )}
+              {'testo' in sezione && (
+                <p>
+                  <Dato valore={sezione.testo} />
+                </p>
+              )}
             </>
           ))
         }
