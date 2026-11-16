@@ -1,5 +1,6 @@
 ---
 // L'indirizzo dello studio non viene pubblicato, per scelta del medico: niente indirizzo né mappa.
+// Telefono e WhatsApp compaiono solo se sono compilati in src/data/studio.json.
 import Base from '../layouts/Base.astro';
 import Dato from '../components/Dato.astro';
 import { studio, mancante, linkTelefono, linkEmail, linkWhatsapp } from '../lib/studio';
@@ -12,30 +13,42 @@ interface Props {
 const { lingua } = Astro.props;
 const t = ui[lingua];
 const area = studio.area[lingua];
+
+// Elenco dei canali disponibili, per comporre le frasi ("telefonare, scrivere una email o ...").
+const elenca = (voci: string[], congiunzione: string) =>
+  voci.length <= 1 ? (voci[0] ?? '') : `${voci.slice(0, -1).join(', ')} ${congiunzione} ${voci.at(-1)}`;
+const canali = {
+  it: [linkTelefono && 'telefonare', 'scrivere una email', linkWhatsapp && 'inviare un messaggio WhatsApp'],
+  en: [linkTelefono && 'call', 'send an email', linkWhatsapp && 'send a WhatsApp message'],
+}[lingua].filter((voce): voce is string => Boolean(voce));
+const nomi = {
+  it: [linkTelefono && 'Telefono', 'Email', linkWhatsapp && 'WhatsApp'],
+  en: [linkTelefono && 'Phone', 'Email', linkWhatsapp && 'WhatsApp'],
+}[lingua].filter((voce): voce is string => Boolean(voce));
+const scritti = { it: linkWhatsapp ? 'via email o WhatsApp' : 'via email', en: linkWhatsapp ? 'by email or WhatsApp' : 'by email' }[lingua];
+
 const testi = {
   it: {
     titolo: 'Contatti',
-    descrizione: `Telefono, email e WhatsApp del ${studio.nome}. Le visite si svolgono su appuntamento.`,
+    descrizione: `${elenca(nomi, 'e')} del ${studio.nome}. Le visite si svolgono su appuntamento.`,
     sommario: 'Le visite si svolgono su appuntamento.',
     recapiti: 'Recapiti',
     prenotare: 'Come prenotare',
-    prenotareTesto:
-      'Per fissare una visita è possibile telefonare, scrivere una email o inviare un messaggio WhatsApp. Sede e orario dell’appuntamento vengono comunicati al momento della prenotazione.',
+    prenotareTesto: `Per fissare una visita è possibile ${elenca(canali, 'o')}. Sede e orario dell’appuntamento vengono comunicati al momento della prenotazione.`,
+    scriviEmail: 'Scrivi una email',
     area: 'Dove riceve',
-    riservatezza:
-      'Per la tua riservatezza, non inviare referti, fotografie o informazioni dettagliate sulla tua salute via email o WhatsApp: se ne parla direttamente durante la visita.',
+    riservatezza: `Per la tua riservatezza, non inviare referti, fotografie o informazioni dettagliate sulla tua salute ${scritti}: se ne parla direttamente durante la visita.`,
   },
   en: {
     titolo: 'Contact',
-    descrizione: `Phone, email and WhatsApp of ${studio.nome}. Consultations are by appointment.`,
+    descrizione: `${elenca(nomi, 'and')} of ${studio.nome}. Consultations are by appointment.`,
     sommario: 'Consultations are by appointment.',
     recapiti: 'Contact details',
     prenotare: 'How to book',
-    prenotareTesto:
-      'To arrange a consultation you can call, send an email or a WhatsApp message. The location and time of the appointment are confirmed when you book.',
+    prenotareTesto: `To arrange a consultation you can ${elenca(canali, 'or')}. The location and time of the appointment are confirmed when you book.`,
+    scriviEmail: 'Send an email',
     area: 'Where consultations take place',
-    riservatezza:
-      'For your privacy, please do not send medical reports, photographs or detailed information about your health by email or WhatsApp: these are discussed in person during the consultation.',
+    riservatezza: `For your privacy, please do not send medical reports, photographs or detailed information about your health ${scritti}: these are discussed in person during the consultation.`,
   },
 }[lingua];
 ---
@@ -56,12 +69,16 @@ const testi = {
         <div>
           <h2>{testi.recapiti}</h2>
           <dl class="dati">
-            <div>
-              <dt>{t.telefono}</dt>
-              <dd>
-                {linkTelefono ? <a href={linkTelefono}>{studio.telefono}</a> : <Dato valore={studio.telefono} />}
-              </dd>
-            </div>
+            {
+              linkTelefono && (
+                <div>
+                  <dt>{t.telefono}</dt>
+                  <dd>
+                    <a href={linkTelefono}>{studio.telefono}</a>
+                  </dd>
+                </div>
+              )
+            }
             <div>
               <dt>{t.email}</dt>
               <dd class="spezza">
@@ -86,6 +103,13 @@ const testi = {
               linkTelefono && (
                 <a class="pulsante" href={linkTelefono}>
                   {t.chiama}
+                </a>
+              )
+            }
+            {
+              !linkTelefono && linkEmail && (
+                <a class="pulsante" href={linkEmail}>
+                  {testi.scriviEmail}
                 </a>
               )
             }

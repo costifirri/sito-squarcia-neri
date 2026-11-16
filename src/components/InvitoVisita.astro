@@ -1,6 +1,6 @@
 ---
 import { ui, rotte, type Lingua } from '../i18n/ui';
-import { linkTelefono, studio } from '../lib/studio';
+import { linkTelefono, linkEmail, studio } from '../lib/studio';
 
 interface Props {
   lingua: Lingua;
@@ -12,13 +12,15 @@ const testi = {
   it: {
     titolo: 'Prenotare una visita',
     testo:
-      'Ogni indicazione viene valutata durante la visita, in base alla situazione clinica della singola persona. Per fissare un appuntamento è possibile telefonare o scrivere.',
+      'Ogni indicazione viene valutata durante la visita, in base alla situazione clinica della singola persona. Per fissare un appuntamento è possibile ' +
+      (linkTelefono ? 'telefonare o scrivere.' : 'scrivere una email.'),
     chiama: 'Chiama',
   },
   en: {
     titolo: 'Booking a consultation',
     testo:
-      'Every indication is assessed during the consultation, based on the clinical situation of the individual person. To arrange an appointment, please call or write.',
+      'Every indication is assessed during the consultation, based on the clinical situation of the individual person. To arrange an appointment, please ' +
+      (linkTelefono ? 'call or write.' : 'send an email.'),
     chiama: 'Call',
   },
 }[lingua];

@@ -2,7 +2,7 @@
 // Testo da far verificare a un consulente privacy.
 import Base from '../layouts/Base.astro';
 import Dato from '../components/Dato.astro';
-import { studio } from '../lib/studio';
+import { studio, mancante } from '../lib/studio';
 import { rotte, type Lingua } from '../i18n/ui';
 
 interface Props {
@@ -10,7 +10,14 @@ interface Props {
 }
 
 const { lingua } = Astro.props;
-const titolare = `${studio.nome}, P. IVA ${studio.partitaIva}, email ${studio.email}, telefono ${studio.telefono}`;
+const haTelefono = !mancante(studio.telefono);
+const haWhatsapp = !mancante(studio.whatsapp);
+const titolare = `${studio.nome}, P. IVA ${studio.partitaIva}, email ${studio.email}` + (haTelefono ? `, telefono ${studio.telefono}` : '');
+// Canali di contatto effettivamente pubblicati sul sito
+const canaliIt = [haTelefono && 'telefono', 'email', haWhatsapp && 'WhatsApp'].filter(Boolean);
+const canaliEn = [haTelefono && 'phone', 'email', haWhatsapp && 'WhatsApp'].filter(Boolean);
+const elenca = (voci: unknown[], congiunzione: string) =>
+  voci.length <= 1 ? String(voci[0] ?? '') : `${voci.slice(0, -1).join(', ')} ${congiunzione} ${voci.at(-1)}`;
 const testi = {
   it: {
     titolo: 'Privacy policy',
@@ -30,9 +37,11 @@ const testi = {
       {
         titolo: 'Dati forniti contattando il medico',
         paragrafi: [
-          'Chi contatta il medico per telefono, email o WhatsApp fornisce volontariamente i propri dati (ad esempio nome, recapiti e contenuto del messaggio). Questi dati sono utilizzati solo per rispondere alla richiesta e per fissare l’appuntamento (art. 6, par. 1, lett. b GDPR) e sono conservati per il tempo necessario a tali finalità.',
-          'Si raccomanda di non inviare via email o WhatsApp referti, fotografie o informazioni dettagliate sul proprio stato di salute.',
-          'La casella email è gestita tramite il servizio Gmail di Google Ireland Limited; WhatsApp è un servizio di WhatsApp Ireland Limited. Entrambi trattano i dati secondo le rispettive informative.',
+          `Chi contatta il medico per ${elenca(canaliIt, 'o')} fornisce volontariamente i propri dati (ad esempio nome, recapiti e contenuto del messaggio). Questi dati sono utilizzati solo per rispondere alla richiesta e per fissare l’appuntamento (art. 6, par. 1, lett. b GDPR) e sono conservati per il tempo necessario a tali finalità.`,
+          `Si raccomanda di non inviare via ${haWhatsapp ? 'email o WhatsApp' : 'email'} referti, fotografie o informazioni dettagliate sul proprio stato di salute.`,
+          haWhatsapp
+            ? 'La casella email è gestita tramite il servizio Gmail di Google Ireland Limited; WhatsApp è un servizio di WhatsApp Ireland Limited. Entrambi trattano i dati secondo le rispettive informative.'
+            : 'La casella email è gestita tramite il servizio Gmail di Google Ireland Limited, che tratta i dati secondo la propria informativa.',
         ],
       },
       {
@@ -69,9 +78,11 @@ const testi = {
       {
         titolo: 'Data provided when contacting the doctor',
         paragrafi: [
-          'Anyone contacting the doctor by phone, email or WhatsApp voluntarily provides their data (for example name, contact details and the content of the message). These data are used only to reply to the request and to arrange the appointment (Art. 6(1)(b) GDPR) and are kept for as long as necessary for those purposes.',
-          'Please do not send medical reports, photographs or detailed information about your health by email or WhatsApp.',
-          'The email account is run on the Gmail service of Google Ireland Limited; WhatsApp is a service of WhatsApp Ireland Limited. Both process data according to their own privacy policies.',
+          `Anyone contacting the doctor by ${elenca(canaliEn, 'or')} voluntarily provides their data (for example name, contact details and the content of the message). These data are used only to reply to the request and to arrange the appointment (Art. 6(1)(b) GDPR) and are kept for as long as necessary for those purposes.`,
+          `Please do not send medical reports, photographs or detailed information about your health by ${haWhatsapp ? 'email or WhatsApp' : 'email'}.`,
+          haWhatsapp
+            ? 'The email account is run on the Gmail service of Google Ireland Limited; WhatsApp is a service of WhatsApp Ireland Limited. Both process data according to their own privacy policies.'
+            : 'The email account is run on the Gmail service of Google Ireland Limited, which processes data according to its own privacy policy.',
         ],
       },
       {

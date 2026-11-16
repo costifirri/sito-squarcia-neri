@@ -19,10 +19,13 @@ const anno = new Date().getFullYear();
     <div class="pie__colonne">
       <div>
         <h2>{t.footerContatti}</h2>
-        <p>
-          {t.telefono}:{' '}
-          {linkTelefono ? <a href={linkTelefono}>{studio.telefono}</a> : <Dato valore={studio.telefono} />}
-        </p>
+        {
+          linkTelefono && (
+            <p>
+              {t.telefono}: <a href={linkTelefono}>{studio.telefono}</a>
+            </p>
+          )
+        }
         <p class="spezza">
           {t.email}:{' '}
           {linkEmail ? <a href={linkEmail}>{studio.email}</a> : <Dato valore={studio.email} />}

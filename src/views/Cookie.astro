@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { studio } from '../lib/studio';
+import { studio, linkWhatsapp } from '../lib/studio';
 import { rotte, type Lingua } from '../i18n/ui';
 
 interface Props {
@@ -21,6 +21,7 @@ const testi = {
         ],
       },
       {
+        soloConWhatsapp: true,
         titolo: 'Collegamenti a servizi esterni',
         paragrafi: [
           'Il collegamento a WhatsApp apre un servizio di terzi, soggetto alla propria informativa. Nessun dato viene trasmesso finché il visitatore non lo apre.',
@@ -48,6 +49,7 @@ const testi = {
         ],
       },
       {
+        soloConWhatsapp: true,
         titolo: 'Links to external services',
         paragrafi: [
           'The WhatsApp link opens a third-party service, which is subject to its own policy. No data is transmitted until the visitor opens it.',
@@ -76,7 +78,7 @@ const testi = {
       <hr class="linea" />
       <div class="prosa">
         {
-          testi.sezioni.map((sezione) => (
+          testi.sezioni.filter((sezione) => linkWhatsapp || !('soloConWhatsapp' in sezione)).map((sezione) => (
             <>
               <h2>{sezione.titolo}</h2>
               {sezione.paragrafi.map((paragrafo) => (
