@@ -1,6 +1,6 @@
 ---
 import { ui, rotte, type Lingua } from '../i18n/ui';
-import { linkTelefono, linkEmail, studio } from '../lib/studio';
+import { linkTelefono, linkEmail, linkPrenotazione, studio } from '../lib/studio';
 
 interface Props {
   lingua: Lingua;
@@ -32,7 +32,7 @@ const testi = {
     <hr class="linea" />
     <p class="testo secondario">{testi.testo}</p>
     <div class="azioni">
-      <a class="pulsante" href={rotte.contatti[lingua]}>{t.prenota}</a>
+      <a class="pulsante" href={linkPrenotazione(lingua) ?? rotte.contatti[lingua]}>{t.prenota}</a>
       {
         linkTelefono && (
           <a class="pulsante pulsante--contorno" href={linkTelefono}>

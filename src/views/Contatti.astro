@@ -3,7 +3,7 @@
 // Telefono e WhatsApp compaiono solo se sono compilati in src/data/studio.json.
 import Base from '../layouts/Base.astro';
 import Dato from '../components/Dato.astro';
-import { studio, mancante, linkTelefono, linkEmail, linkWhatsapp } from '../lib/studio';
+import { studio, mancante, linkTelefono, linkEmail, linkWhatsapp, linkPrenotazione } from '../lib/studio';
 import { ui, rotte, type Lingua } from '../i18n/ui';
 
 interface Props {
@@ -108,7 +108,7 @@ const testi = {
             }
             {
               !linkTelefono && linkEmail && (
-                <a class="pulsante" href={linkEmail}>
+                <a class="pulsante" href={linkPrenotazione(lingua) ?? linkEmail}>
                   {testi.scriviEmail}
                 </a>
               )

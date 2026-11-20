@@ -3,7 +3,7 @@ import monogramma from '../../brand/gsn-monogramma-trasparente.svg?url';
 import Base from '../layouts/Base.astro';
 import Dato from '../components/Dato.astro';
 import InvitoVisita from '../components/InvitoVisita.astro';
-import { studio } from '../lib/studio';
+import { studio, linkPrenotazione } from '../lib/studio';
 import { ui, rotte, categorie, nomiCategorie, type Lingua } from '../i18n/ui';
 
 interface Props {
@@ -76,7 +76,7 @@ const testi = {
         <hr class="linea" />
         <p class="sommario"><Dato valore={testi.presentazione} /></p>
         <div class="azioni">
-          <a class="pulsante" href={rotte.contatti[lingua]}>{t.prenota}</a>
+          <a class="pulsante" href={linkPrenotazione(lingua) ?? rotte.contatti[lingua]}>{t.prenota}</a>
           <a class="pulsante pulsante--contorno" href={rotte.trattamenti[lingua]}>{testi.vediTrattamenti}</a>
         </div>
       </div>
